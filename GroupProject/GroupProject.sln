@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVC", "WebMVC\WebMVC.csproj", "{BC5745BF-6786-466C-AC08-8D28D6DAFD01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{EE0D8D0B-C848-4B69-959B-466307CEC744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleDataProvider", "MultipleDataProvider\MultipleDataProvider.csproj", "{8D5667DC-4538-4E84-B7FF-720A93886B8A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC5745BF-6786-466C-AC08-8D28D6DAFD01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5745BF-6786-466C-AC08-8D28D6DAFD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5745BF-6786-466C-AC08-8D28D6DAFD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5745BF-6786-466C-AC08-8D28D6DAFD01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0D8D0B-C848-4B69-959B-466307CEC744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0D8D0B-C848-4B69-959B-466307CEC744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0D8D0B-C848-4B69-959B-466307CEC744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0D8D0B-C848-4B69-959B-466307CEC744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5667DC-4538-4E84-B7FF-720A93886B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5667DC-4538-4E84-B7FF-720A93886B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5667DC-4538-4E84-B7FF-720A93886B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5667DC-4538-4E84-B7FF-720A93886B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

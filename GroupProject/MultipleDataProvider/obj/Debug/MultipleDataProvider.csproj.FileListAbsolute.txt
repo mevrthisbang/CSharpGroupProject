@@ -1,0 +1,15 @@
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\MultipleDataProvider.dll
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\MultipleDataProvider.pdb
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.AccessControl.dll
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.Permissions.dll
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.Principal.Windows.dll
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Configuration.ConfigurationManager.xml
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.AccessControl.xml
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.Permissions.xml
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.Principal.Windows.xml
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.csprojAssemblyReference.cache
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.csproj.CoreCompileInputs.cache
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.csproj.CopyComplete
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.dll
+E:\mevrthisbang\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.pdb
