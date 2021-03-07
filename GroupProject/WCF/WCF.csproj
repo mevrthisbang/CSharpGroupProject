@@ -61,21 +61,21 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\BagCategoryService.svc" />
-    <Content Include="Services\BagService.svc" />
+    <Content Include="Services\WCFBagCategoryService.svc" />
+    <Content Include="Services\WCFBagService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Bag.cs" />
     <Compile Include="Entities\BagCategory.cs" />
-    <Compile Include="Services\BagCategoryService.svc.cs">
-      <DependentUpon>BagCategoryService.svc</DependentUpon>
+    <Compile Include="Services\WCFBagCategoryService.svc.cs">
+      <DependentUpon>WCFBagCategoryService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\BagService.svc.cs">
-      <DependentUpon>BagService.svc</DependentUpon>
+    <Compile Include="Services\WCFBagService.svc.cs">
+      <DependentUpon>WCFBagService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\IBagCategoryService.cs" />
-    <Compile Include="Services\IBagService.cs" />
+    <Compile Include="Services\IWCFBagCategoryService.cs" />
+    <Compile Include="Services\IWCFBagService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
