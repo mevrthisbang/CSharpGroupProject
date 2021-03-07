@@ -68,15 +68,15 @@
   <ItemGroup>
     <Compile Include="Entities\Bag.cs" />
     <Compile Include="Entities\BagCategory.cs" />
+    <Compile Include="Services\IWCFBagService.cs" />
     <Compile Include="Services\WCFBagCategoryService.svc.cs">
       <DependentUpon>WCFBagCategoryService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\IWCFBagCategoryService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\WCFBagService.svc.cs">
       <DependentUpon>WCFBagService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\IWCFBagCategoryService.cs" />
-    <Compile Include="Services\IWCFBagService.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

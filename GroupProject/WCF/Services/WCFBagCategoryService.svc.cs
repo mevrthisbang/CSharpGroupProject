@@ -39,5 +39,4 @@ namespace WCF.Services
             return bagCateList;
         }
     }
-    }
 }

@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
 using System.Text;
 using WCF.Entities;
 
-namespace WCF
+namespace WCF.Services
 {
-    public class BagService : IBagService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "WCFBagService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select WCFBagService.svc or WCFBagService.svc.cs at the Solution Explorer and start debugging.
+    public class WCFBagService : IWCFBagService
     {
         DataProvider dp = new DataProvider();
         public bool AddNewBag(Bag bag)
@@ -23,15 +24,15 @@ namespace WCF
             DataParameter id = new DataParameter { Name = "@ID", Value = bag.BagID };
             DataParameter name = new DataParameter { Name = "@Name", Value = bag.BagName };
             DataParameter image = new DataParameter { Name = "@Image", Value = bag.Image };
-            DataParameter description= new DataParameter { Name = "@Description", Value = bag.Description };
+            DataParameter description = new DataParameter { Name = "@Description", Value = bag.Description };
             DataParameter origin = new DataParameter { Name = "@Origin", Value = bag.Origin };
             DataParameter size = new DataParameter { Name = "@Size", Value = bag.size };
-            DataParameter price = new DataParameter { Name = "@Price", Value = bag.Price};
+            DataParameter price = new DataParameter { Name = "@Price", Value = bag.Price };
             DataParameter quantity = new DataParameter { Name = "@Quantity", Value = bag.Quantity };
             DataParameter bagCID = new DataParameter { Name = "@BagCID", Value = bag.BagCID };
             try
             {
-                return dp.executeNonQuery(SQL, CommandType.Text, id, name, image, description, origin, size, price,quantity,bagCID);
+                return dp.executeNonQuery(SQL, CommandType.Text, id, name, image, description, origin, size, price, quantity, bagCID);
             }
             catch (SqlException se)
             {
@@ -72,7 +73,7 @@ namespace WCF
                         Origin = rd.GetString(3),
                         size = rd.GetString(4),
                         Price = rd.GetDouble(5),
-                        Status=rd.GetString(6)
+                        Status = rd.GetString(6)
                     };
                     bagList.Add(bag);
                 }
@@ -109,7 +110,7 @@ namespace WCF
         public Bag GetBagByID(string id)
         {
             Bag bag = null;
-            string sqlSelect = "select bagName, image, origin, size, price, status, bagCID, quantity from BagTBL Where bagID=@ID" ;
+            string sqlSelect = "select bagName, image, origin, size, price, status, bagCID, quantity from BagTBL Where bagID=@ID";
             DataParameter bagID = new DataParameter { Name = "@ID", Value = id };
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, bagID);
             if (rd.HasRows)
@@ -124,7 +125,7 @@ namespace WCF
                         Origin = rd.GetString(3),
                         size = rd.GetString(4),
                         Price = rd.GetDouble(5),
-                        Status = rd.GetString(6), 
+                        Status = rd.GetString(6),
 
                     };
                 }

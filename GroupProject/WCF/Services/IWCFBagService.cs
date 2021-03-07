@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
 using System.Text;
 using WCF.Entities;
 
-namespace WCF
+namespace WCF.Services
 {
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IWCFBagService" in both code and config file together.
     [ServiceContract]
-    public interface IBagService
+    public interface IWCFBagService
     {
         [OperationContract]
         List<Bag> GetAllBooksForUser();
