@@ -14,10 +14,36 @@ namespace GroupProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+               name: "Add Cart",
+               url: "add-to-cart",
+               defaults: new { controller = "ShoppingCart", action = "addToCart", id = UrlParameter.Optional },
+               namespaces: new[] { "GroupProject.Controllers" }
+           );
+            routes.MapRoute(
+               name: "Update Cart Add",
+               url: "update-cart-add",
+               defaults: new { controller = "ShoppingCart", action = "updateAddCart", id = UrlParameter.Optional },
+               namespaces: new[] { "GroupProject.Controllers" }
+           );
+            routes.MapRoute(
+             name: "Update Cart Sub",
+             url: "update-cart-sub",
+             defaults: new { controller = "ShoppingCart", action = "updateSubCart", id = UrlParameter.Optional },
+             namespaces: new[] { "GroupProject.Controllers" }
+         );
+            routes.MapRoute(
+               name: "Delete Cart",
+               url: "delete-cart",
+               defaults: new { controller = "ShoppingCart", action = "removeCart", id = UrlParameter.Optional },
+               namespaces: new[] { "GroupProject.Controllers" }
+           );
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                    name: "Default",
+                    url: "{controller}/{action}/{id}",
+                    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+        );
+
         }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model List<GroupProject.Models.CartDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Model != null)
+{
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Image</td>
+                <td>Description</td>
+                <td>Unit Price</td>
+                <td>Quantity</td>
+                <td>Total Price</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.bag.name</td>
+                    <td><img src="@item.bag.image" style="width:100px;height:100px;"></td>
+                    <td>@item.bag.description</td>
+                    <td>@item.bag.price</td>
+                    <td>
+                        <a href="/update-cart-add?bid=@item.bag.id"><button>+</button></a>
+                        @item.quantity
+                        <a href="/update-cart-sub?bid=@item.bag.id&quantity=@item.quantity"><button>-</button></a>
+                    </td>
+                    <td>@(item.quantity * item.bag.price)</td>
+                    <td><a href="/delete-cart?id=@item.bag.id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>Your Shopping Cart Is Empty!!!</h2>
+}
