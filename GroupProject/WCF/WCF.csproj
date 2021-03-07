@@ -61,14 +61,20 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\BagCategoryService.svc" />
     <Content Include="Services\BagService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Bag.cs" />
+    <Compile Include="Entities\BagCategory.cs" />
+    <Compile Include="Services\BagCategoryService.svc.cs">
+      <DependentUpon>BagCategoryService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\BagService.svc.cs">
       <DependentUpon>BagService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Services\IBagCategoryService.cs" />
     <Compile Include="Services\IBagService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
