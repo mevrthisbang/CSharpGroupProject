@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVC", "WebMVC\WebMVC.csproj", "{BC5745BF-6786-466C-AC08-8D28D6DAFD01}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE0D8D0B-C848-4B69-959B-466307CEC744} = {EE0D8D0B-C848-4B69-959B-466307CEC744}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{EE0D8D0B-C848-4B69-959B-466307CEC744}"
 EndProject

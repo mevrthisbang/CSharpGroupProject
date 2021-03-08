@@ -33,7 +33,7 @@ namespace MultipleDataProvider
         public void Init()
         {
             string strConnection;
-            string driverActive = ConfigurationManager.AppSettings["DriverActive"];
+            var driverActive = ConfigurationManager.AppSettings["DriverActive"];
             if (driverActive == "SqlServer")
             {
                 strConnection = ConfigurationManager.ConnectionStrings["SqlNW"].ConnectionString;

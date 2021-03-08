@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d482401a-e4dc-4d95-9bbc-23fe06165910" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55575/Services/WCFBagCategoryService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WCFBagCategoryService.xsd" MetadataType="Schema" ID="9e3678a9-fbf4-4bf6-9c3e-23569b0f5ac2" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagCategoryService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCFBagCategoryService1.xsd" MetadataType="Schema" ID="08a286b5-8dab-49a4-869a-e2317e77a514" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagCategoryService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WCFBagCategoryService.disco" MetadataType="Disco" ID="f4039f13-2def-4ab1-bbc9-c4f29a180b24" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagCategoryService.svc?disco" />
+    <MetadataFile FileName="BagCategoryService.wsdl" MetadataType="Wsdl" ID="c0499a5a-1a5d-451b-8791-fff4909a28e7" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagCategoryService.svc?wsdl" />
+    <MetadataFile FileName="WCFBagCategoryService2.xsd" MetadataType="Schema" ID="e6d44827-fd8c-452f-a927-5fb7ef7cacd5" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagCategoryService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
