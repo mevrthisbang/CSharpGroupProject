@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WCFBagService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCF.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWCFBagService_GetAllBooksForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooksForUser" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetAllBooksForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooksForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetAllBooksForAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooksForAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetAllBooksForAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooksForAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_AddNewBag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewBag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_AddNewBag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewBagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_UpdateBag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_UpdateBag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_DeleteBag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_DeleteBag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetBagByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBagByID" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetBagByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBagByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWCFBagService">
+    <wsdl:operation name="GetAllBooksForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetAllBooksForUser" message="tns:IWCFBagService_GetAllBooksForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/GetAllBooksForUserResponse" message="tns:IWCFBagService_GetAllBooksForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBooksForAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetAllBooksForAdmin" message="tns:IWCFBagService_GetAllBooksForAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/GetAllBooksForAdminResponse" message="tns:IWCFBagService_GetAllBooksForAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/AddNewBag" message="tns:IWCFBagService_AddNewBag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/AddNewBagResponse" message="tns:IWCFBagService_AddNewBag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/UpdateBag" message="tns:IWCFBagService_UpdateBag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/UpdateBagResponse" message="tns:IWCFBagService_UpdateBag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/DeleteBag" message="tns:IWCFBagService_DeleteBag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/DeleteBagResponse" message="tns:IWCFBagService_DeleteBag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBagByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetBagByID" message="tns:IWCFBagService_GetBagByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/GetBagByIDResponse" message="tns:IWCFBagService_GetBagByID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWCFBagService" type="tns:IWCFBagService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllBooksForUser">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/GetAllBooksForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBooksForAdmin">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/GetAllBooksForAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBag">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/AddNewBag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBag">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/UpdateBag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBag">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/DeleteBag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBagByID">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/GetBagByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WCFBagService">
+    <wsdl:port name="BasicHttpBinding_IWCFBagService" binding="tns:BasicHttpBinding_IWCFBagService">
+      <soap:address location="http://localhost:55575/Services/WCFBagService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

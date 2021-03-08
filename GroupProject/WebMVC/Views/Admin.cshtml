@@ -1,0 +1,46 @@
+﻿@using WebMVC.BagCategoryService,
+@using WebMVC.BagService
+@{
+    ViewBag.Title = "Admin";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+</head>
+<body>
+    <div>
+        Category:
+        <select>
+            @foreach (BagCategory bagCate in ViewBag.Categories)
+            {
+                <option>@bagCate.CateName</option>
+            }
+</select>
+        Bag
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Bag bag in ViewBag.Bags)
+                {
+                    <tr>
+                        <td>@bag.BagName</td>
+                        <td>@bag.size</td>
+                        <td>@bag.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </body>
+</html>
