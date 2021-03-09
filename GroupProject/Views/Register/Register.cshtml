@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <div>
+        @ViewBag.Message
+    </div> <br />
+    @using (Html.BeginForm("RegisterAccount", "Register", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td> <input type="text" required name="txtUsername" /></td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td> <input type="password" required name="txtPassword" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Register" />
+                    <input type="reset" value="Reset" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Login", "Index", "Login")
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>
