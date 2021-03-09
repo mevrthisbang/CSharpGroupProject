@@ -8,10 +8,13 @@ namespace GroupProject.Controllers
 {
     public class HistoryController : Controller
     {
+       
         // GET: History
-        public ActionResult Index()
+        public ActionResult Index(string user)
         {
-            return View();
+            BagData dao = new BagData();
+            List<CartDTO> result = new List<CartDTO>();
+            return View(result);
         }
     }
 }

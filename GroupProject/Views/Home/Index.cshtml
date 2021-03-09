@@ -1,24 +1,208 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>
+﻿@model IEnumerable<GroupProject.BagDTO>
+@{
+        ViewBag.Title = "Index";
+    }
+<html>
+<head>
+    <title>Bag List</title>
+</head>
+<p>
+    <form id="search" method="post">
+        <div class="form-group form-inline">
+            <input placeholder="search here.." type="text" name="txtSearch" class="form-control" />
+            <input type="submit" name="submit" value="Search" class="form-control" />
+        </div>
+    </form>
+</p>
+<body>
+    @if (Model.Count() > 0)
+    {
+        <table class="table" width="500">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.bagName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.origin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.createDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bagCID)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bagName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.origin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.size)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.createDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bagCID)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h4> Bag List is empty ..</h4>
+    }
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+@*@{
+        ViewBag.Title = "Index";
+    }*@
+
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <p>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <b>Search :</b>
+            @Html.TextBox("search") <input type="submit" value="Search" />
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bagName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.origin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bagCID)
+            </th>
+            <th></th>
+        </tr>
+
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4"> No rows match search criteria </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bagName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.origin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.size)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.createDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bagCID)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.bagID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.bagID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.bagID })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>*@

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GroupProject.CartDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>History</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bag Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bagName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price * item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.statusOrser)
+                </td>
+            </tr>
+        </tbody>
+    }
+
+   
+
+
+</table>
+
