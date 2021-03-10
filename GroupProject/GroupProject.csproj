@@ -166,6 +166,7 @@
     <Compile Include="Models\BagDAO.cs" />
     <Compile Include="Models\BagDTO.cs" />
     <Compile Include="Models\CartDTO.cs" />
+    <Compile Include="Models\CartObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

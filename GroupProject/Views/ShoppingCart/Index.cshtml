@@ -1,9 +1,11 @@
-﻿@model List<GroupProject.Models.CartDTO>
+﻿@model GroupProject.Models.CartObj
 @{
     ViewBag.Title = "Index";
+    var cart = Session["CART"] as GroupProject.Models.CartObj;
+    var itemInCart = cart.cart.Values;
 }
 
-@if (Model != null)
+@if (itemInCart !=null)
 {
     <table class="table" border="1">
         <thead>
@@ -18,20 +20,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+           
+            @foreach (var item in itemInCart)
             {
                 <tr>
-                    <td>@item.bag.name</td>
-                    <td><img src="@item.bag.image" style="width:100px;height:100px;"></td>
-                    <td>@item.bag.description</td>
-                    <td>@item.bag.price</td>
+                    <td>@item.name</td>
+                    <td><img src="@item.image" style="width:100px;height:100px;"></td>
+                    <td>@item.description</td>
+                    <td>@item.price</td>
                     <td>
-                        <a href="/update-cart-add?bid=@item.bag.id"><button>+</button></a>
-                        @item.quantity
-                        <a href="/update-cart-sub?bid=@item.bag.id&quantity=@item.quantity"><button>-</button></a>
+                        <a href="/update-cart-add?bid=@item.id&quantity=@item.quantityCart"><button>+</button></a>
+                        @item.quantityCart
+                        <a href="/update-cart-sub?bid=@item.id&quantity=@item.quantityCart"><button>-</button></a>
                     </td>
-                    <td>@(item.quantity * item.bag.price)</td>
-                    <td><a href="/delete-cart?id=@item.bag.id">Delete</a></td>
+                    <td>@(item.quantityCart * item.price)</td>
+                    <td><a href="/delete-cart?id=@item.id">Delete</a></td>
                 </tr>
             }
         </tbody>
