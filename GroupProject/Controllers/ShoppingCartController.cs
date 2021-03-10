@@ -78,7 +78,7 @@ namespace GroupProject.Controllers
             CartObj cart = (CartObj)Session["CART"];
             if (quantity<=1)
             {
-
+                cart.removeCart(bid);
             }
             else
             {
@@ -90,10 +90,12 @@ namespace GroupProject.Controllers
         }
         public ActionResult removeCart(string id)
         {
+            CartObj cart = (CartObj)Session["CART"];
+            cart.removeCart(id);
             //var list = (List<CartDTO>)Session["CART"];
             //list.RemoveAll(x => x.bag.id == id);
 
-            //Session["CART"] = list;
+            Session["CART"] = cart;
             return RedirectToAction("Index");
         }
     }
