@@ -105,6 +105,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="css\style.css" />
+    <Content Include="css\style_1.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -157,6 +159,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Admin.cshtml" />
     <Content Include="Views\CreateOrEdit.cshtml" />
+    <Content Include="Views\Create.cshtml" />
+    <Content Include="Views\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -167,6 +171,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="Views\Bag\" />
   </ItemGroup>
   <ItemGroup>

@@ -13,5 +13,11 @@ namespace WebMVC.Controllers
         {
             return View();
         }
+
+        public ViewResult Create()
+        {
+            TempData["CreateOrEdit"] = "Create";
+            return View("~/Views/Create");
+        }
     }
 }
