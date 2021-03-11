@@ -14,7 +14,7 @@
 </head>
 <body>
     <div>
-        <p>@Html.ActionLink("Add New Product", "~/Bag/Create")</p>
+        <p>@Html.ActionLink("Add New Product", "Create", "Bag", null, null)</p>
         Category:
         <select>
             @foreach (BagCategory bagCate in ViewBag.Categories)
@@ -40,8 +40,8 @@
                     <td>@bag.BagName</td>
                     <td>@bag.size</td>
                     <td>@bag.Price</td>
-                    <td>@Html.ActionLink("Delete", "~/Bag/Delete", new { BagID = bag.BagID })</td>
-                    <td>@Html.ActionLink("Edit", "~/Bag/Edit", new { BagID = bag.BagID })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "Bag", new { BagID = bag.BagID }, null)</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Bag", new { BagID = bag.BagID }, null)</td>
                 </tr>
                 }
             </tbody>

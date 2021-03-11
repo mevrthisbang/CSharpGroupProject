@@ -1,10 +1,10 @@
-E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\obj\Debug\WCF.csproj.CoreCompileInputs.cache
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\bin\WCF.dll.config
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\bin\WCF.dll
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\bin\WCF.pdb
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\bin\MultipleDataProvider.dll
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\bin\MultipleDataProvider.pdb
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\obj\Debug\WCF.csprojAssemblyReference.cache
+E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\obj\Debug\WCF.csproj.CoreCompileInputs.cache
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\obj\Debug\WCF.csproj.CopyComplete
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\obj\Debug\WCF.dll
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WCF\obj\Debug\WCF.pdb
