@@ -237,52 +237,52 @@ namespace GroupProject
         }
 
         // spham ban nhieu nhat
-        //public List<BagDTO> reportBagOrder()
-        //{
-        //    string SQL = "Select TOP 5 bagID, bagName, image, price" +
-        //                 "From BagTBL where status='Active' and quantity > 0 and counter > 0 " +
-        //                 "Order by counter DESC";
-        //    List<BagDTO> rs = null;
-        //    BagDTO dto = null;
+        public List<BagDTO> GetBuyMany()
+        {
+            string SQL = "Select TOP 5 bagID, bagName, image, price" +
+                         "From BagTBL where status='Active' and quantity > 0 and counter > 0 " +
+                         "Order by counter DESC";
+            List<BagDTO> rs = null;
+            BagDTO dto = null;
 
-        //    SqlConnection connection = null;
-        //    try
-        //    {
-        //        connection = new SqlConnection(strConnection);
-        //        SqlCommand command = new SqlCommand(SQL, connection);
-        //        connection.Open();
-        //        SqlDataReader reader = command.ExecuteReader();
+            SqlConnection connection = null;
+            try
+            {
+                connection = new SqlConnection(strConnection);
+                SqlCommand command = new SqlCommand(SQL, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
 
-        //        while (reader.Read())
-        //        {
-        //            string id = reader.GetValue(0).ToString();
-        //            string name = reader.GetValue(1).ToString();
-        //            string image = reader.GetValue(2).ToString();
-        //            float price = float.Parse(reader.GetValue(3).ToString());
+                while (reader.Read())
+                {
+                    string id = reader.GetValue(0).ToString();
+                    string name = reader.GetValue(1).ToString();
+                    string image = reader.GetValue(2).ToString();
+                    float price = float.Parse(reader.GetValue(3).ToString());
 
 
 
-        //            dto = new BagDTO()
-        //            {
-        //                bagID = id,
-        //                bagName = name,
-        //                image = image,
-        //                price = price
+                    dto = new BagDTO()
+                    {
+                        bagID = id,
+                        bagName = name,
+                        image = image,
+                        price = price
 
-        //            };
-        //            rs.Add(dto);
-        //        }
+                    };
+                    rs.Add(dto);
+                }
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return rs;
-        //}
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rs;
+        }
     }
 }
