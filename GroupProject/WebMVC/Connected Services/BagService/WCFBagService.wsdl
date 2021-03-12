@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCF.Entities" />
-      <xsd:import schemaLocation="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Web" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IWCFBagService_GetAllBooksForUser_InputMessage">
@@ -44,6 +43,12 @@
   <wsdl:message name="IWCFBagService_GetBagByID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBagByIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetLastBagID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastBagID" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetLastBagID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastBagIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWCFBagService">
     <wsdl:operation name="GetAllBooksForUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetAllBooksForUser" message="tns:IWCFBagService_GetAllBooksForUser_InputMessage" />
@@ -68,6 +73,10 @@
     <wsdl:operation name="GetBagByID">
       <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetBagByID" message="tns:IWCFBagService_GetBagByID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/GetBagByIDResponse" message="tns:IWCFBagService_GetBagByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastBagID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetLastBagID" message="tns:IWCFBagService_GetLastBagID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/GetLastBagIDResponse" message="tns:IWCFBagService_GetLastBagID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWCFBagService" type="tns:IWCFBagService">
@@ -119,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetBagByID">
       <soap:operation soapAction="http://tempuri.org/IWCFBagService/GetBagByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastBagID">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/GetLastBagID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

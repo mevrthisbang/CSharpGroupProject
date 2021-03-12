@@ -16,7 +16,7 @@
         <div class="center">
             <h1>Update Bag</h1>
         </div>
-        @using (Html.BeginForm("Create", "Bag", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Edit", "Bag", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.Partial("~/Views/CreateOrEdit.cshtml")
             <div class="container">

@@ -38,9 +38,6 @@ namespace WebMVC.BagService {
         private string ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Web.HttpPostedFileBase ImageFileField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OriginField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -126,19 +123,6 @@ namespace WebMVC.BagService {
                 if ((object.ReferenceEquals(this.ImageField, value) != true)) {
                     this.ImageField = value;
                     this.RaisePropertyChanged("Image");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Web.HttpPostedFileBase ImageFile {
-            get {
-                return this.ImageFileField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImageFileField, value) != true)) {
-                    this.ImageFileField = value;
-                    this.RaisePropertyChanged("ImageFile");
                 }
             }
         }
@@ -257,6 +241,12 @@ namespace WebMVC.BagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetBagByID", ReplyAction="http://tempuri.org/IWCFBagService/GetBagByIDResponse")]
         System.Threading.Tasks.Task<WebMVC.BagService.Bag> GetBagByIDAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetLastBagID", ReplyAction="http://tempuri.org/IWCFBagService/GetLastBagIDResponse")]
+        string GetLastBagID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetLastBagID", ReplyAction="http://tempuri.org/IWCFBagService/GetLastBagIDResponse")]
+        System.Threading.Tasks.Task<string> GetLastBagIDAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -332,6 +322,14 @@ namespace WebMVC.BagService {
         
         public System.Threading.Tasks.Task<WebMVC.BagService.Bag> GetBagByIDAsync(string id) {
             return base.Channel.GetBagByIDAsync(id);
+        }
+        
+        public string GetLastBagID() {
+            return base.Channel.GetLastBagID();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetLastBagIDAsync() {
+            return base.Channel.GetLastBagIDAsync();
         }
     }
 }

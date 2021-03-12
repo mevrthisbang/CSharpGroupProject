@@ -170,7 +170,7 @@ namespace WCF.Services
             {
                 if (rd.Read())
                 {
-                    result = rd.GetString(1);
+                    result = rd.GetString(0);
                 }
             }
             return result;

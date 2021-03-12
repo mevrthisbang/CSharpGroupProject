@@ -1,19 +1,23 @@
 ﻿@model WebMVC.BagService.Bag
 
 <div class="row">
-    <div class="form-row">
-        <div class="form-group col-md-4">
-        </div>
-        <div class="center">
+
+    @if (TempData["CreateOrEdit"] == "Edit")
+    {
+        <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputID">BagID</label>
-                @if (TempData["CreateOrEdit"] == "Edit")
-                {
-                    @Html.TextBoxFor(model=>model.BagID, new { @readonly="readonly", @class = "form-control", @id = "inputID" })
-                }
+            </div>
+            <div class="center">
+                <div class="form-group col-md-4">
+                    <label for="inputID">BagID</label>
+                    @if (TempData["CreateOrEdit"] == "Edit")
+                    {
+                        @Html.TextBoxFor(model => model.BagID, new { @readonly = "readonly", @class = "form-control", @id = "inputID" })
+                    }
+                </div>
             </div>
         </div>
-    </div>
+    }
     <div class="form-row">
         <div class="form-group col-md-4">
         </div>
@@ -31,10 +35,10 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputImage">Image</label>
-                <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage" />
+                <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage"  required/>
                 @if (TempData["CreateOrEdit"] == "Create")
                 {
-                    <img id="blah" src="~/img/logo.png" width="150px" height="200px" /><br>
+                    <img id="blah" src="~/img/logo.png" width="150px" height="200px"/><br>
                 }
                 else if (TempData["CreateOrEdit"] == "Edit")
                 {
@@ -51,7 +55,7 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputDescription">Description</label>
-                @Html.TextAreaFor(model => model.Description, new { Class = "form-control", Id = "inputDescription" } )
+                @Html.TextAreaFor(model => model.Description, new { Class = "form-control", Id = "inputDescription" })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -122,11 +126,11 @@
                 <label for="inputBagCID">Category</label><br>
                 @if (TempData["CreateOrEdit"] == "Edit")
                 {
-                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName", Model.BagCID), new { Class = "form-select", Id = "inputBagCID" } )
+                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName", Model.BagCID), new { Class = "form-select", Id = "inputBagCID" })
                 }
                 else if (TempData["CreateOrEdit"] == "Create")
                 {
-                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName"), new { Class = "form-select", Id = "inputBagCID" } )
+                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName"), new { Class = "form-select", Id = "inputBagCID" })
                 }
             </div>
         </div>
