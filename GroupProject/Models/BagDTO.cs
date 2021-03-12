@@ -20,5 +20,17 @@ namespace GroupProject
         public string createDate { get; set; }
         public string bagCID { get; set; }
 
+        public BagDTO()
+        {
+
+        }
+
+        public BagDTO(string bagID, string bagName, string image, double price)
+        {
+            this.bagID = bagID;
+            this.bagName = bagName;
+            this.image = image;
+            this.price = price;
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace GroupProject
 {
     public class CartDTO
     {
-        public int quantity {get;set;}
+        public int quantity { get; set; }
         public int quantityCart { get; set; }
         public double price { get; set; }
         public string bagID { get; set; }
@@ -22,8 +22,8 @@ namespace GroupProject
         public string bagCID { get; set; }
 
         public string date { get; set; }
-       public string statusOrser { get; set; }
-       
+        public string statusOrser { get; set; }
+
 
 
     }
