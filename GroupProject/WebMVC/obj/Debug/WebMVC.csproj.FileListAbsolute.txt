@@ -1,3 +1,5 @@
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WebMVC\bin\roslyn\Microsoft.CodeAnalysis.dll
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CoreCompileInputs.cache
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csprojAssemblyReference.cache
+C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csprojAssemblyReference.cache
+C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CoreCompileInputs.cache

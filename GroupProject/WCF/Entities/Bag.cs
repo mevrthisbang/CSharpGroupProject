@@ -29,7 +29,5 @@ namespace WCF.Entities
         public string Status { get; set; }
         [DataMember]
         public string BagCID { get; set; }
-        [DataMember]
-        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

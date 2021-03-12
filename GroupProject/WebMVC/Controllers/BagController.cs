@@ -30,7 +30,7 @@ namespace WebMVC.Controllers
             return View("~/Views/Edit.cshtml", bag);
         }
         [HttpPost]
-        public ActionResult Create(Bag bag)
+        public ActionResult Create(Bag bag, HttpPostedFileBase ImageFile)
         {
             TempData["CreateOrEdit"] = "Create";
             string lastID = bagServiceClient.GetLastBagID();
@@ -43,11 +43,11 @@ namespace WebMVC.Controllers
                 int count = int.Parse(lastID.Split('_')[1]) + 1;
                 lastID = "B_" + count;
             }
-            string extension = Path.GetExtension(bag.ImageFile.FileName);
+            string extension = Path.GetExtension(ImageFile.FileName);
             string filename = lastID + extension;
             bag.Image = "~/img/" + filename;
             filename = Path.Combine(Server.MapPath("~/img/"), filename);
-            bag.ImageFile.SaveAs(filename);
+            ImageFile.SaveAs(filename);
             if (bagServiceClient.AddNewBag(bag))
             {
 

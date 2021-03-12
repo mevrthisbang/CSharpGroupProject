@@ -111,7 +111,7 @@ namespace WCF.Services
         public Bag GetBagByID(string id)
         {
             Bag bag = null;
-            string sqlSelect = "select bagName, image, origin, size, price, status, bagCID, quantity from BagTBL Where bagID=@ID";
+            string sqlSelect = "select bagName, image, origin, size, price, status, bagCID, quantity, description from BagTBL Where bagID=@ID";
             DataParameter bagID = new DataParameter { Name = "@ID", Value = id };
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, bagID);
             if (rd.HasRows)
@@ -128,7 +128,8 @@ namespace WCF.Services
                         Price = Convert.ToDouble(rd.GetDecimal(4)),
                         Status = rd.GetString(5),
                         BagCID=rd.GetString(6),
-                        Quantity=rd.GetInt32(7)
+                        Quantity=rd.GetInt32(7), 
+                        Description=rd.GetString(8)
                     };
                 }
             }
