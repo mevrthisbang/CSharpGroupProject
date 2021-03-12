@@ -38,6 +38,9 @@ namespace WebMVC.BagService {
         private string ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Web.HttpPostedFileBase ImageFileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OriginField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -123,6 +126,19 @@ namespace WebMVC.BagService {
                 if ((object.ReferenceEquals(this.ImageField, value) != true)) {
                     this.ImageField = value;
                     this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Web.HttpPostedFileBase ImageFile {
+            get {
+                return this.ImageFileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageFileField, value) != true)) {
+                    this.ImageFileField = value;
+                    this.RaisePropertyChanged("ImageFile");
                 }
             }
         }

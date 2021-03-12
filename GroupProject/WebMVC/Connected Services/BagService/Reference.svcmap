@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:55575/Services/WCFBagService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WCFBagService.xsd" MetadataType="Schema" ID="e89754e5-ed3e-40e9-9b42-8a5720949f91" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd0" />
-    <MetadataFile FileName="WCFBagService1.xsd" MetadataType="Schema" ID="dcb2f298-2fd6-44f2-93e0-1f3bcfc3f4a9" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd1" />
-    <MetadataFile FileName="WCFBagService.disco" MetadataType="Disco" ID="6eb042b9-2692-4a2d-add6-61f2c5715540" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?disco" />
     <MetadataFile FileName="WCFBagService.wsdl" MetadataType="Wsdl" ID="f70d3e9a-ed06-43fc-adbc-19ba6455b86d" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?wsdl" />
+    <MetadataFile FileName="WCFBagService1.xsd" MetadataType="Schema" ID="dcb2f298-2fd6-44f2-93e0-1f3bcfc3f4a9" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCFBagService3.xsd" MetadataType="Schema" ID="c3e518d1-3e05-4e25-ae57-366cd6d7caf2" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd3" />
     <MetadataFile FileName="WCFBagService2.xsd" MetadataType="Schema" ID="2dcc98ca-caa3-4cfa-ad09-872c2c43bf66" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WCFBagService.disco" MetadataType="Disco" ID="6eb042b9-2692-4a2d-add6-61f2c5715540" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?disco" />
+    <MetadataFile FileName="WCFBagService.xsd" MetadataType="Schema" ID="e89754e5-ed3e-40e9-9b42-8a5720949f91" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

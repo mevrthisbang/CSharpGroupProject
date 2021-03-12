@@ -1,64 +1,47 @@
-﻿
+﻿@model WebMVC.BagService.Bag
+
 <div class="row">
     <div class="form-row">
         <div class="form-group col-md-4">
         </div>
         <div class="center">
             <div class="form-group col-md-4">
-                <label for="inputContent">Question Content</label>
-                <textarea class="form-control" id="inputContent" name="txtQuestionContent"></textarea>
-                <font color="red">
+                <label for="inputID">BagID</label>
+                @if (TempData["CreateOrEdit"] == "Edit")
+                {
+                    @Html.TextBoxFor(model=>model.BagID, new { @readonly="readonly", @class = "form-control", @id = "inputID" })
+                }
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputBagName">Name</label>
+                @Html.EditorFor(model => model.BagName, new { htmlAttributes = new { @class = "form-control", @id = "inputBagName" } })
+                @Html.ValidationMessageFor(model => model.BagName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputImage">Image</label>
+                <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage" />
+                @if (TempData["CreateOrEdit"] == "Create")
+                {
+                    <img id="blah" src="~/img/logo.png" width="150px" height="200px" /><br>
+                }
+                else if (TempData["CreateOrEdit"] == "Edit")
+                {
+                    <img id="blah" src="@Url.Content(Model.Image)" width="150px" height="200px" /><br>
+                }
 
-                </font>
-            </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-        </div>
-        <div class="center">
-            <div class="form-group col-md-4">
-                <label for="inputAnswer1">Answer 1</label>
-                <textarea class="form-control" id="inputAnswer1" name="txtAnswer1"></textarea>
-                <font color="red">
-                </font>
-            </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-        </div>
-        <div class="center">
-            <div class="form-group col-md-4">
-                <label for="inputAnswer2">Answer 2</label>
-                <textarea class="form-control" id="inputAnswer2" name="txtAnswer2"></textarea>
-                <font color="red">
-                </font>
-            </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-        </div>
-        <div class="center">
-            <div class="form-group col-md-4">
-                <label for="inputAnswer3">Answer 3</label>
-                <textarea class="form-control" id="inputAnswer3" name="txtAnswer3"></textarea>
-                <font color="red">
-                </font>
-            </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-        </div>
-        <div class="center">
-            <div class="form-group col-md-4">
-                <label for="inputCorrectAnswer">Correct Answer</label>
-                <textarea class="form-control" id="inputCorrectAnswer" name="txtCorrectAnswer"></textarea>
-                <font color="red">
 
-                </font>
             </div>
         </div>
     </div>
@@ -67,17 +50,101 @@
         </div>
         <div class="center">
             <div class="form-group col-md-4">
-                <label for="inputSubject">Subject</label><br>
-                <select name="cboSubjects" id="inputSubject" class="custom-select">
-                    <c:if test="">
-                        <c:forEach items="" var="subject">
-                            <option value=""></option>
-                        </c:forEach>
-                    </c:if>
-                </select>
-                <font color="red">
-                </font>
+                <label for="inputDescription">Description</label>
+                @Html.TextAreaFor(model => model.Description, new { Class = "form-control", Id = "inputDescription" } )
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputOrigin">Origin</label>
+                @Html.EditorFor(model => model.Origin, new { htmlAttributes = new { @class = "form-control", @id = "inputOrigin" } })
+                @Html.ValidationMessageFor(model => model.Origin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputSize">Size</label>
+                @Html.EditorFor(model => model.size, new { htmlAttributes = new { @class = "form-control", @id = "inputSize" } })
+                @Html.ValidationMessageFor(model => model.size, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputPrice">Price</label>
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @id = "inputPrice" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputQuantity">Quantity</label>
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @id = "inputQuantity" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    @if (TempData["CreateOrEdit"] == "Edit")
+    {
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            </div>
+            <div class="center">
+                <div class="form-group col-md-4">
+                    <label for="inputStatus">Status</label>
+                    @Html.DropDownListFor(model => model.Status, new SelectList(new List<string>() { "Active", "Deactive" }, Model.Status), new { Class = "form-select", Id = "inputStatus" })
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+        </div>
+        <div class="center">
+            <div class="form-group col-md-4">
+                <label for="inputBagCID">Category</label><br>
+                @if (TempData["CreateOrEdit"] == "Edit")
+                {
+                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName", Model.BagCID), new { Class = "form-select", Id = "inputBagCID" } )
+                }
+                else if (TempData["CreateOrEdit"] == "Create")
+                {
+                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName"), new { Class = "form-select", Id = "inputBagCID" } )
+                }
             </div>
         </div>
     </div>
 </div>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

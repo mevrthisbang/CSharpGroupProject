@@ -42,7 +42,8 @@ namespace WCF.Services
 
         public bool DeleteBag(string bagID)
         {
-            string SQL = "Delete From BagTBL where bagID=@ID";
+            string SQL = "Update BagTBL set status='Deactive' " +
+                "where bagID=@ID";
             DataParameter id = new DataParameter { Name = "@ID", Value = bagID };
             try
             {
@@ -119,14 +120,15 @@ namespace WCF.Services
                 {
                     bag = new Bag
                     {
-                        BagID = rd.GetString(0),
-                        BagName = rd.GetString(1),
-                        Image = rd.GetString(2),
-                        Origin = rd.GetString(3),
-                        size = rd.GetString(4),
-                        Price = rd.GetDouble(5),
-                        Status = rd.GetString(6),
-
+                        BagID = id,
+                        BagName = rd.GetString(0),
+                        Image = rd.GetString(1),
+                        Origin = rd.GetString(2),
+                        size = rd.GetString(3),
+                        Price = Convert.ToDouble(rd.GetDecimal(4)),
+                        Status = rd.GetString(5),
+                        BagCID=rd.GetString(6),
+                        Quantity=rd.GetInt32(7)
                     };
                 }
             }

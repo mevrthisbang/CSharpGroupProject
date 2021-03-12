@@ -3,15 +3,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Create</title>
     <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="~/css/style_1.css">
 </head>
 <body>
-    <div> 
+    @Html.Partial("~/Views/AdminHeader.cshtml")
+    <div class="container" style="margin-top: 50px;">
+        <div class="center">
+            <h1>Update Bag</h1>
+        </div>
+        @using (Html.BeginForm("Create", "Bag", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Partial("~/Views/CreateOrEdit.cshtml")
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <input type="submit" class="btn btn-large btn-primary" value="Create" style="margin-top: 30px;" />
+                    </div>
+                </div>
+            </div>
+        }
+
     </div>
 </body>
 </html>

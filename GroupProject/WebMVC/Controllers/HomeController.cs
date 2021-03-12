@@ -12,7 +12,7 @@ namespace WebMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Categories = HttpContext.Application["ListCategory"];
+            ViewBag.Categories = GlobalVariables.GetCategories();
             WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
             ViewBag.Bags = bagServiceClient.GetAllBooksForUser();
             return View("~/Views/Admin.cshtml");
