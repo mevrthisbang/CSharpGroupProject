@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed90c3be-3818-497f-9bd1-50b6f86af859" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="94618178-56de-4dd5-afa7-dc018d26412e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:55575/Services/WCFBagService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WCFBagService.wsdl" MetadataType="Wsdl" ID="f70d3e9a-ed06-43fc-adbc-19ba6455b86d" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?wsdl" />
-    <MetadataFile FileName="WCFBagService1.xsd" MetadataType="Schema" ID="dcb2f298-2fd6-44f2-93e0-1f3bcfc3f4a9" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd1" />
-    <MetadataFile FileName="WCFBagService3.xsd" MetadataType="Schema" ID="c3e518d1-3e05-4e25-ae57-366cd6d7caf2" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd3" />
-    <MetadataFile FileName="WCFBagService2.xsd" MetadataType="Schema" ID="2dcc98ca-caa3-4cfa-ad09-872c2c43bf66" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd2" />
-    <MetadataFile FileName="WCFBagService.disco" MetadataType="Disco" ID="6eb042b9-2692-4a2d-add6-61f2c5715540" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?disco" />
-    <MetadataFile FileName="WCFBagService.xsd" MetadataType="Schema" ID="e89754e5-ed3e-40e9-9b42-8a5720949f91" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WCFBagService.wsdl" MetadataType="Wsdl" ID="7d4bf396-f0ce-441b-bca6-585a6f42c1f8" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?wsdl" />
+    <MetadataFile FileName="WCFBagService.xsd" MetadataType="Schema" ID="a88c6c35-6786-4cea-bd83-7782656f2d54" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCFBagService1.xsd" MetadataType="Schema" ID="1e42db73-a12e-47ff-b130-b5a976e87f26" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WCFBagService2.xsd" MetadataType="Schema" ID="befbfead-c8b9-4ce2-a243-925ac8afd749" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WCFBagService.disco" MetadataType="Disco" ID="756499cc-0af7-4a76-b0f9-60416ccc1e54" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?disco" />
+    <MetadataFile FileName="WCFBagService3.xsd" MetadataType="Schema" ID="4e492b0f-79b2-4f9e-84d8-4c7af73df3d0" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFBagService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

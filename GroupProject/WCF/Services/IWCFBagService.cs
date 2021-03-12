@@ -24,5 +24,7 @@ namespace WCF.Services
         bool DeleteBag(string bagID);
         [OperationContract]
         Bag GetBagByID(string id);
+        [OperationContract]
+        string GetLastBagID();
     }
 }

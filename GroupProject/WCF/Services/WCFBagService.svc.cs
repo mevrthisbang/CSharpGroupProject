@@ -116,7 +116,7 @@ namespace WCF.Services
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, bagID);
             if (rd.HasRows)
             {
-                while (rd.Read())
+                if (rd.Read())
                 {
                     bag = new Bag
                     {
@@ -158,6 +158,22 @@ namespace WCF.Services
             {
                 throw new Exception(se.Message);
             }
+        }
+        public string GetLastBagID()
+        {
+            string result = null;
+            string sqlSelect = "Select bagID From BagTBL "
+                    + "Where createDate=(Select MAX(createDate) "
+                    + "From BagTBL)";
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text);
+            if (rd.HasRows)
+            {
+                if (rd.Read())
+                {
+                    result = rd.GetString(1);
+                }
+            }
+            return result;
         }
     }
 }

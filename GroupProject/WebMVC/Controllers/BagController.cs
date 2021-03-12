@@ -31,11 +31,14 @@ namespace WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(Bag bag)
         {
+            TempData["CreateOrEdit"] = "Create";
+            string lastID = bagServiceClient.GetLastBagID();
             return View();
         }
         [HttpPost]
         public ActionResult Update(Bag bag)
         {
+            TempData["CreateOrEdit"] = "Edit";
             return View();
         }
         public ActionResult Delete(string id)
