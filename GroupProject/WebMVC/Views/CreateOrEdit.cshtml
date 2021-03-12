@@ -35,13 +35,16 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputImage">Image</label>
-                <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage"  required/>
                 @if (TempData["CreateOrEdit"] == "Create")
                 {
-                    <img id="blah" src="~/img/logo.png" width="150px" height="200px"/><br>
+                    <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage" required />
+
+                    <img id="blah" src="~/img/logo.png" width="150px" height="200px" /><br>
                 }
                 else if (TempData["CreateOrEdit"] == "Edit")
                 {
+                    <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage"/>
+
                     <img id="blah" src="@Url.Content(Model.Image)" width="150px" height="200px" /><br>
                 }
 

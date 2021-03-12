@@ -59,10 +59,23 @@ namespace WebMVC.Controllers
             return View("~/Views/Create.cshtml");
         }
         [HttpPost]
-        public ActionResult Update(Bag bag)
+        public ActionResult Update(Bag bag, HttpPostedFileBase ImageFile)
         {
             TempData["CreateOrEdit"] = "Edit";
-            return View();
+            string extension = Path.GetExtension(ImageFile.FileName);
+            string filename = bag.BagID + extension;
+            bag.Image = "~/img/" + filename;
+            filename = Path.Combine(Server.MapPath("~/img/"), filename);
+            ImageFile.SaveAs(filename);
+            if (bagServiceClient.UpdateBag(bag))
+            {
+
+            }
+            else
+            {
+
+            }
+            return View("~/Views/Update.cshtml");
         }
         public ActionResult Delete(string id)
         {
