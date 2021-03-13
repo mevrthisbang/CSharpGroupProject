@@ -1,8 +1,6 @@
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WebMVC\bin\roslyn\Microsoft.CodeAnalysis.dll
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CoreCompileInputs.cache
 E:\mevrthisbang\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csprojAssemblyReference.cache
-C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csprojAssemblyReference.cache
-C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CoreCompileInputs.cache
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\WebMVC.dll.config
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\WebMVC.dll
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\WebMVC.pdb
@@ -70,6 +68,8 @@ C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\System.Web.Webpages.Ra
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\System.Web.Helpers.xml
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\System.Web.Mvc.xml
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CoreCompileInputs.cache
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CopyComplete
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.dll
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.pdb
+C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csprojAssemblyReference.cache

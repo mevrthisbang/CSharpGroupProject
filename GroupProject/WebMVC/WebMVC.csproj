@@ -105,6 +105,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\FileService\WCFFileService.disco" />
+    <None Include="Connected Services\FileService\configuration91.svcinfo" />
+    <None Include="Connected Services\FileService\configuration.svcinfo" />
+    <None Include="Connected Services\FileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="css\style.css" />
     <Content Include="css\style_1.css" />
     <Content Include="Global.asax" />
@@ -119,6 +126,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\BagService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\FileService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -158,6 +170,19 @@
     <Content Include="Connected Services\BagService\WebMVC.BagService.Bag.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\FileService\WCFFileService.wsdl" />
+    <None Include="Connected Services\FileService\WCFFileService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FileService\WCFFileService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FileService\WCFFileService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\FileService\WebMVC.FileService.UploadFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Admin.cshtml" />
     <Content Include="Views\CreateOrEdit.cshtml" />
@@ -181,6 +206,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\BagCategoryService\" />
     <WCFMetadataStorage Include="Connected Services\BagService\" />
+    <WCFMetadataStorage Include="Connected Services\FileService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

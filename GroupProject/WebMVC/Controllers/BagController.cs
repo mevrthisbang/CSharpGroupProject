@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebMVC.BagService;
+using WebMVC.FileService;
 
 namespace WebMVC.Controllers
 {
@@ -47,10 +48,11 @@ namespace WebMVC.Controllers
                 }
                 string extension = Path.GetExtension(ImageFile.FileName);
                 string filename = lastID + extension;
-                bag.Image = "~/img/" + filename;
-                filename = Path.Combine(Server.MapPath("~/img/"), filename);
-                ImageFile.SaveAs(filename);
+                bag.Image = "http://localhost:55575/img/" + filename;
+                WCFFileServiceClient fileServiceClient = new WCFFileServiceClient();
+                fileServiceClient.UploadFile(filename,ImageFile.InputStream);
                 bag.BagID = lastID;
+
                 if (bagServiceClient.AddNewBag(bag))
                 {
 
@@ -71,9 +73,9 @@ namespace WebMVC.Controllers
                 
                 string extension = Path.GetExtension(ImageFile.FileName);
                 string filename = bag.BagID + extension;
-                bag.Image = "~/img/" + filename;
-                filename = Path.Combine(Server.MapPath("~/img/"), filename);
-                ImageFile.SaveAs(filename);
+                bag.Image = "http://localhost:55575/img/" + filename;
+                WCFFileServiceClient fileServiceClient = new WCFFileServiceClient();
+                fileServiceClient.UploadFile(filename, ImageFile.InputStream);
                 if (bagServiceClient.UpdateBag(bag))
                 {
 
