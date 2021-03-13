@@ -77,9 +77,18 @@ namespace WebMVC.Controllers
             }
             return View("~/Views/Update.cshtml");
         }
-        public ActionResult Delete(string id)
+        [HttpGet]
+        public ActionResult Delete(string bagID)
         {
-            return View();
+            if (bagServiceClient.DeleteBag(bagID))
+            {
+
+            }
+            else
+            {
+
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
