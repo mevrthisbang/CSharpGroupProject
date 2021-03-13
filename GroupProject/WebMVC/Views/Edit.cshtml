@@ -4,6 +4,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
@@ -29,5 +32,21 @@
         }
 
     </div>
+    <script src="~/Scripts/alertify.min.js"></script>
+
+    <script>
+        function DisplayMessage() {
+            var successMessage = '@TempData["SuccessMessage"]';
+            var failMessage = '@TempData["FailMessage"]';
+            if (successMessage != '') {
+                alertify.success(successMessage);
+            } else if (failMessage != '') {
+                alertify.error(failMessage);
+            }
+        };
+        window.onload = DisplayMessage();
+    </script>
 </body>
 </html>
+
+

@@ -55,14 +55,15 @@ namespace WebMVC.Controllers
 
                 if (bagServiceClient.AddNewBag(bag))
                 {
-
+                    TempData["SuccessMessage"] = "Add Bag Successfully";
+                    ModelState.Clear();
                 }
                 else
                 {
-
+                    TempData["FailMessage"] = "Add Bag Failed";
                 }
             }
-            return View("~/Views/Create.cshtml", null);
+            return View("~/Views/Create.cshtml");
         }
         [HttpPost]
         public ActionResult Update(Bag bag, HttpPostedFileBase ImageFile)
@@ -78,25 +79,25 @@ namespace WebMVC.Controllers
                 fileServiceClient.UploadFile(filename, ImageFile.InputStream);
                 if (bagServiceClient.UpdateBag(bag))
                 {
-
+                    TempData["SuccessMessage"] = "Update Bag Successfully";
                 }
                 else
                 {
-
+                    TempData["FailMessage"] = "Update Bag Failed";
                 }
             }
-            return View("~/Views/Update.cshtml", bag);
+            return Edit(bag.BagID);
         }
         [HttpGet]
         public ActionResult Delete(string bagID)
         {
             if (bagServiceClient.DeleteBag(bagID))
             {
-
+                TempData["SuccessMessage"] = "Deleted Successfully";
             }
             else
             {
-
+                TempData["FailMessage"] = "Deleted Failed";
             }
             return RedirectToAction("Index", "Home");
         }

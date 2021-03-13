@@ -11,6 +11,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Admin</title>
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <div>
@@ -21,7 +24,7 @@
             {
                 <option>@bagCate.CateName</option>
             }
-</select>
+        </select>
         Bag
         <table border="1">
             <thead>
@@ -34,18 +37,42 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach(Bag bag in ViewBag.Bags)
+                @foreach (Bag bag in ViewBag.Bags)
                 {
-                <tr>
-                    <td>@bag.BagName</td>
-                    <td>@bag.size</td>
-                    <td>@bag.Price</td>
-                    <td>@Html.ActionLink("Delete", "Delete", "Bag", new { BagID = bag.BagID }, null)</td>
-                    <td>@Html.ActionLink("Edit", "Edit", "Bag", new { BagID = bag.BagID }, null)</td>
-                </tr>
+                    <tr>
+                        <td>@bag.BagName</td>
+                        <td>@bag.size</td>
+                        <td>@bag.Price</td>
+                        <td>
+                            <a onclick="Delete('@bag.BagID')"><i class="fa fa-trash"></i> Delete</a>
+                        </td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Bag", new { BagID = bag.BagID }, null)</td>
+                    </tr>
                 }
             </tbody>
         </table>
-        </div>
+    </div>
+    <script src="~/Scripts/alertify.min.js"></script>
+
+    <script>
+        function DisplayMessage() {
+            var successMessage = '@TempData["SuccessMessage"]';
+            var failMessage = '@TempData["FailMessage"]';
+            if (successMessage != '') {
+                alertify.success(successMessage);
+            } else if (failMessage != '') {
+                alertify.error(failMessage);
+            }
+        };
+        window.onload = DisplayMessage();
+        function Delete(id) {
+            alertify.confirm('Confirm', 'Are you sure to delete this bag?', function () {  window.location.href='@Url.Action("Delete", "Bag")?BagID=' + id;}
+                , null);
+        };
+    </script>
+       
     </body>
+
 </html>
+
+
