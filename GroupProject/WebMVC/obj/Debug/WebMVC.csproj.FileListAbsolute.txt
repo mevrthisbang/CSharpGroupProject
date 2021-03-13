@@ -72,3 +72,4 @@ C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.Co
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csproj.CopyComplete
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.dll
 C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.pdb
+C:\Users\Admin\CSharpGroupProject\GroupProject\WebMVC\obj\Debug\WebMVC.csprojAssemblyReference.cache

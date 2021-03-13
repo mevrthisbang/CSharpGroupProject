@@ -8,10 +8,7 @@ namespace WebMVC
 {
     public class GlobalVariables
     {
-        public static BagCategory[] GetCategories()
-        {
-            WCFBagCategoryServiceClient BagCategoryData = new WCFBagCategoryServiceClient();
-            return BagCategoryData.getAllCategories();
-        }
+        private static WCFBagCategoryServiceClient BagCategoryData = new WCFBagCategoryServiceClient();
+        public static BagCategory[] Categories = BagCategoryData.getAllCategories();
     }
 }

@@ -129,11 +129,11 @@
                 <label for="inputBagCID">Category</label><br>
                 @if (TempData["CreateOrEdit"] == "Edit")
                 {
-                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName", Model.BagCID), new { Class = "form-select", Id = "inputBagCID" })
+                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.Categories, "bagCID", "CateName", Model.BagCID), new { Class = "form-select", Id = "inputBagCID" })
                 }
                 else if (TempData["CreateOrEdit"] == "Create")
                 {
-                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.GetCategories(), "bagCID", "CateName"), new { Class = "form-select", Id = "inputBagCID" })
+                    @Html.DropDownListFor(model => model.BagCID, new SelectList(GlobalVariables.Categories, "bagCID", "CateName"), new { Class = "form-select", Id = "inputBagCID" })
                 }
             </div>
         </div>
