@@ -19,8 +19,8 @@ namespace WCF.Services
         public bool AddNewBag(Bag bag)
         {
             string SQL =
-                "Insert into BagTBL(bagID, bagName, image, description, origin, size, price, quantity, bagCID) " +
-                "values(@ID,@Name,@Image,@Description,@Origin,@Size,@Price,@Quantity,@BagCID)";
+                "Insert into BagTBL(bagID, bagName, image, description, origin, size, price, quantity, bagCID, status) " +
+                "values(@ID,@Name,@Image,@Description,@Origin,@Size,@Price,@Quantity,@BagCID, 'Active')";
             DataParameter id = new DataParameter { Name = "@ID", Value = bag.BagID };
             DataParameter name = new DataParameter { Name = "@Name", Value = bag.BagName };
             DataParameter image = new DataParameter { Name = "@Image", Value = bag.Image };
