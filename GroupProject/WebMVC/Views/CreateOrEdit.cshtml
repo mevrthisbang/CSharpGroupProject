@@ -24,7 +24,7 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputBagName">Name</label>
-                @Html.EditorFor(model => model.BagName, new { htmlAttributes = new { @class = "form-control", @id = "inputBagName" } })
+                @Html.EditorFor(model => model.BagName, new { htmlAttributes = new { @class = "form-control", @id = "inputBagName", @required="required" } })
                 @Html.ValidationMessageFor(model => model.BagName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputOrigin">Origin</label>
-                @Html.EditorFor(model => model.Origin, new { htmlAttributes = new { @class = "form-control", @id = "inputOrigin" } })
+                @Html.EditorFor(model => model.Origin, new { htmlAttributes = new { @class = "form-control", @id = "inputOrigin", @required = "required" } })
                 @Html.ValidationMessageFor(model => model.Origin, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,7 +80,7 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputSize">Size</label>
-                @Html.EditorFor(model => model.size, new { htmlAttributes = new { @class = "form-control", @id = "inputSize" } })
+                @Html.EditorFor(model => model.size, new { htmlAttributes = new { @class = "form-control", @id = "inputSize", @required = "required" } })
                 @Html.ValidationMessageFor(model => model.size, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -91,7 +91,7 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputPrice">Price</label>
-                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @id = "inputPrice" } })
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @id = "inputPrice", @required = "required", @type = "number", @min = "0.01", @step = "0.01" } })
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -102,7 +102,7 @@
         <div class="center">
             <div class="form-group col-md-4">
                 <label for="inputQuantity">Quantity</label>
-                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @id = "inputQuantity" } })
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @id = "inputQuantity", @required = "required", @type = "number", @min = "1", @step = "1" } })
                 @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
             </div>
         </div>

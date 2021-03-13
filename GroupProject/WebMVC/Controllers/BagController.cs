@@ -33,49 +33,57 @@ namespace WebMVC.Controllers
         public ActionResult Create(Bag bag, HttpPostedFileBase ImageFile)
         {
             TempData["CreateOrEdit"] = "Create";
-            string lastID = bagServiceClient.GetLastBagID();
-            if (lastID == null)
+            if (ModelState.IsValid)
             {
-                lastID = "B_1";
-            }
-            else
-            {
-                int count = int.Parse(lastID.Split('_')[1]) + 1;
-                lastID = "B_" + count;
-            }
-            string extension = Path.GetExtension(ImageFile.FileName);
-            string filename = lastID + extension;
-            bag.Image = "~/img/" + filename;
-            filename = Path.Combine(Server.MapPath("~/img/"), filename);
-            ImageFile.SaveAs(filename);
-            if (bagServiceClient.AddNewBag(bag))
-            {
+                string lastID = bagServiceClient.GetLastBagID();
+                if (lastID == null)
+                {
+                    lastID = "B_1";
+                }
+                else
+                {
+                    int count = int.Parse(lastID.Split('_')[1]) + 1;
+                    lastID = "B_" + count;
+                }
+                string extension = Path.GetExtension(ImageFile.FileName);
+                string filename = lastID + extension;
+                bag.Image = "~/img/" + filename;
+                filename = Path.Combine(Server.MapPath("~/img/"), filename);
+                ImageFile.SaveAs(filename);
+                bag.BagID = lastID;
+                if (bagServiceClient.AddNewBag(bag))
+                {
 
-            }
-            else
-            {
+                }
+                else
+                {
 
+                }
             }
-            return View("~/Views/Create.cshtml");
+            return View("~/Views/Create.cshtml", null);
         }
         [HttpPost]
         public ActionResult Update(Bag bag, HttpPostedFileBase ImageFile)
         {
             TempData["CreateOrEdit"] = "Edit";
-            string extension = Path.GetExtension(ImageFile.FileName);
-            string filename = bag.BagID + extension;
-            bag.Image = "~/img/" + filename;
-            filename = Path.Combine(Server.MapPath("~/img/"), filename);
-            ImageFile.SaveAs(filename);
-            if (bagServiceClient.UpdateBag(bag))
+            if (ModelState.IsValid)
             {
+                
+                string extension = Path.GetExtension(ImageFile.FileName);
+                string filename = bag.BagID + extension;
+                bag.Image = "~/img/" + filename;
+                filename = Path.Combine(Server.MapPath("~/img/"), filename);
+                ImageFile.SaveAs(filename);
+                if (bagServiceClient.UpdateBag(bag))
+                {
 
-            }
-            else
-            {
+                }
+                else
+                {
 
+                }
             }
-            return View("~/Views/Update.cshtml");
+            return View("~/Views/Update.cshtml", bag);
         }
         [HttpGet]
         public ActionResult Delete(string bagID)
