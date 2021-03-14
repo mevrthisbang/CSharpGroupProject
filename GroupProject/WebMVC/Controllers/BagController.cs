@@ -47,7 +47,7 @@ namespace WebMVC.Controllers
                     lastID = "B_" + count;
                 }
                 string extension = Path.GetExtension(ImageFile.FileName);
-                string filename = lastID + extension;
+                string filename = lastID + "_" + DateTime.Now.ToString("yyyyMMdd") + extension;
                 bag.Image = "http://localhost:55575/img/" + filename;
                 WCFFileServiceClient fileServiceClient = new WCFFileServiceClient();
                 fileServiceClient.UploadFile(filename,ImageFile.InputStream);
@@ -73,7 +73,7 @@ namespace WebMVC.Controllers
             {
                 
                 string extension = Path.GetExtension(ImageFile.FileName);
-                string filename = bag.BagID +DateTime.Now.ToString("yyyyMMdd")+ extension;
+                string filename = bag.BagID +"_"+DateTime.Now.ToString("yyyyMMdd")+ extension;
                 bag.Image = "http://localhost:55575/img/" + filename;
                 WCFFileServiceClient fileServiceClient = new WCFFileServiceClient();
                 fileServiceClient.UploadFile(filename, ImageFile.InputStream);
