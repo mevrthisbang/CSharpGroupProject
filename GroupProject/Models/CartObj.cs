@@ -28,10 +28,10 @@ namespace GroupProject.Models
                 if(this.cart.TryGetValue(dto.id, out bagCart))
                 {
                     int quantity = bagCart.quantityCart + dto.quantityCart;
-                    dto.quantityCart = quantity;
+                    bagCart.quantityCart = quantity;
                 }
             }
-            this.cart.Add(dto.id, dto);
+            else { this.cart.Add(dto.id, dto); }
         }
 
     public void removeCart(string id)
