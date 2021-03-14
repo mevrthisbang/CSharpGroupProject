@@ -13,12 +13,6 @@ namespace GroupProject.Controllers
 
         public ActionResult Index()
         {
-            //var cart = Session["CART"];
-            //var list = new List<CartDTO>();
-            //if (cart != null)
-            //{
-            //    list = (List<CartDTO>)cart;
-            //}
             CartObj cart = (CartObj)Session["CART"];
             var Cart = new CartObj();
             if(cart!=null)
