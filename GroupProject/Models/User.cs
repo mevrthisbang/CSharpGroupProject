@@ -13,32 +13,37 @@ namespace GroupProject.Models
     {
         public int ID { get; set; }
 
-//        [Required]
-//        [StringLength(50, ErrorMessage = "First Name must be 3-50 characters", MinimumLength = 3)]
-
+        [Required]
+        [Display(Name = "First Name")]
+        [StringLength(50, ErrorMessage = "The {0} must contains at least {2} characters", MinimumLength = 3)]
         public string FirstName { get; set; }
 
-//        [Required]
-//        [StringLength(50, ErrorMessage = "Last Name must be 3-50 characters", MinimumLength = 3)]
+        [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(50, ErrorMessage = "The {0} must contains at least {2} characters", MinimumLength = 3)]
         public string LastName { get; set; }
 
-//        [Required]
-        [StringLength(50, ErrorMessage = "User Name must be 3-50 characters", MinimumLength = 3)]
+        [Required]
+        [Display(Name = "Username")]
+        [StringLength(50, ErrorMessage = "The {0} must contains at least {2} characters", MinimumLength = 3)]
         public string UserName { get; set; }
 
-//        [Required]
-//        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email doesn't look like a valid email address.")]
+        [Required]
+        [Display(Name = "Email")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
-//        [Required]
-//        [DataType(DataType.Password)]
-//        [StringLength(50, ErrorMessage = "User Name must be 6-50 characters", MinimumLength = 6)]
+        [Required]
+        [Display(Name = "Password")]
+        [DataType(DataType.Password)]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters", MinimumLength = 3)]
         public string Password { get; set; }
 
-//        [NotMapped]
-//        [Required]
-//        [Compare("Password")]
-//        public string F_Password { get; set; }
+        [NotMapped]
+        [Required]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
 
         public string FullName()
         {

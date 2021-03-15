@@ -17,13 +17,23 @@ namespace GroupProject.Controllers
         [Authorize] 
         public ActionResult Index()
         {
-            User user =  (User)Session["Name"];
+            if(Request.Cookies["Name"] != null)
+            {
+                ViewData["FullName"] = Request.Cookies["Name"].Value.ToString();
+            }
+            else
+            {
+                ViewData["FullName"] = "Guest";
+            }
+            /*
+            User user =  (User)Session["Name"]
             if (user != null)
             {
                 ViewData["FullName"] = user.FullName();
             }
             else
                 ViewData["FullName"] = "Guest";
+            */
             ViewBag.Title = "Home Page";
             return View();
         }

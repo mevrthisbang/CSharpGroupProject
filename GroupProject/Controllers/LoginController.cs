@@ -20,30 +20,38 @@ namespace GroupProject.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(User user, string returnUrl)
         {
-            User u = isValidUser(user);
-            if (u != null)
-            {
-                string fullName = u.FullName();
-                FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
-                Session.Add("Name", u);
-                
-                if (returnUrl != null)
-                    return Redirect(returnUrl);
+            //if (ModelState.IsValid)
+            //{
+                User u = isValidUser(user);
+                if (u != null)
+                {
+                    string fullName = u.FullName();
+                    FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
+                    Response.Cookies["Name"].Value = fullName;
+
+                    if (returnUrl != null)
+                        return Redirect(returnUrl);
+                    else
+                        return RedirectToAction("Index", "Home");
+                }
                 else
-                    return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.Message = "Login Failed";
-                return View(user);
-            }
+                {
+                    ViewBag.Message = "Login Failed";
+                    return View(user);
+                }
+            //}
+            //return View(user);
         }
 
         public ActionResult Logout()
         {
-            Session.Remove("Name");
+            if(Request.Cookies["Name"] != null)
+            {
+                Request.Cookies["Name"].Expires = DateTime.Now.AddDays(-1);
+            }
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }

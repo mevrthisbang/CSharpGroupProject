@@ -13,6 +13,7 @@ namespace GroupProject.Controllers
     {
         string connectionString = ConfigurationManager.ConnectionStrings["StoreDB"].ConnectionString;
         // GET: Register
+        [AllowAnonymous]
         public ActionResult Register()
         {
 
@@ -20,29 +21,42 @@ namespace GroupProject.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(User user)
         {
             string username = user.UserName;
             string email = user.Email;
-            if (!isUserExisted(username))
+            if (ModelState.IsValid)
             {
-                if (!isEmailExisted(email))
+                if (!isUserExisted(username))
                 {
-                    addUser(user);
-                    ViewBag.Message = "Register Successfully!";
-                    return RedirectToAction("Login", "Login");
+                    if (!isEmailExisted(email))
+                    {
+                        if (addUser(user))
+                        {
+                            ViewBag.Message = "Register Successfully!";
+                            return RedirectToAction("Login", "Login");
+                        }
+                        else
+                        {
+                            ViewBag.Message = "Server is currently not available!";
+                            return View(user);
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Message = "This Email is already existed";
+                        return View(user);
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "This Email is already existed";
+                    ViewBag.Message = "This user is already existed";
                     return View(user);
                 }
             }
-            else
-            {
-                ViewBag.Message = "This user is already existed";
-                return View(user);
-            }
+            return View(user);
         }
 
         private bool addUser(User user)
