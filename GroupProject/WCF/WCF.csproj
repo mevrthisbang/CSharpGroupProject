@@ -66,15 +66,21 @@
     <Content Include="img\B_4.png" />
     <Content Include="img\B_5.png" />
     <Content Include="img\logo.png" />
+    <Content Include="Services\WCFAccountService.svc" />
     <Content Include="Services\WCFBagCategoryService.svc" />
     <Content Include="Services\WCFBagService.svc" />
     <Content Include="Services\WCFFileService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\Bag.cs" />
     <Compile Include="Entities\BagCategory.cs" />
     <Compile Include="Entities\FileData.cs" />
+    <Compile Include="Services\WCFAccountService.svc.cs">
+      <DependentUpon>WCFAccountService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IWCFAccountService.cs" />
     <Compile Include="Services\IWCFBagService.cs" />
     <Compile Include="Services\IWCFFileService.cs" />
     <Compile Include="Services\WCFBagCategoryService.svc.cs">

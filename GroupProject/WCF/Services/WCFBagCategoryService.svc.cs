@@ -11,6 +11,7 @@ using WCF.Entities;
 
 namespace WCF.Services
 {
+
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "BagCategoryService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select BagCategoryService.svc or BagCategoryService.svc.cs at the Solution Explorer and start debugging.
     public class BagCategoryService : IWCFBagCategoryService

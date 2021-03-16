@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="login-box">
+        <img src="~/img/avatar.png" class="avatar">
+        <h1>LOGIN</h1>
+        <div>
+            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "loginFormID" }))
+            {
+                @Html.AntiForgeryToken()
+                HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <p>Username</p>
+                <div class="textbox">
+                    <input type="text" placeholder="Enter username" name="Username" value="" />
+                    <i class="fas fa-user fa-lg fa-fw" aria-hidden="true"></i>
+
+                </div>
+                <p>Password</p>
+                <div class="textbox">
+                    <input type="password" placeholder="Enter Password" name="Password" value="" />
+                    <i class="fas fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+
+                </div>
+                <input class="btn" value="Login" name="action" type="submit" />
+            }
+        </div>
+    </div>
+</body>
+</html>

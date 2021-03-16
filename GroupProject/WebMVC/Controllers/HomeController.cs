@@ -15,7 +15,7 @@ namespace WebMVC.Controllers
             ViewBag.Categories = GlobalVariables.Categories;
             WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
             ViewBag.Bags = bagServiceClient.GetAllBooksForUser();
-            return View("~/Views/Admin.cshtml");
+            return View("~/Views/Guest.cshtml");
         }
     }
 }
