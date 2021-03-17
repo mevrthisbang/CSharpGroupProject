@@ -10,6 +10,7 @@ using WebMVC.Security;
 
 namespace WebMVC.Controllers
 {
+    [Authorize]
     public class BagController : Controller
     {
         // GET: Bag
