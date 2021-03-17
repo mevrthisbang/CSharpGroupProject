@@ -90,6 +90,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\AccountService\AccountService.wsdl" />
+    <None Include="Connected Services\AccountService\WCFAccountService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\WCFAccountService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\WCFAccountService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BagCategoryService\BagCategoryService.wsdl" />
     <None Include="Connected Services\BagCategoryService\WCFBagCategoryService.disco" />
     <None Include="Connected Services\BagCategoryService\configuration91.svcinfo" />
@@ -109,6 +119,13 @@
     <None Include="Connected Services\FileService\configuration91.svcinfo" />
     <None Include="Connected Services\FileService\configuration.svcinfo" />
     <None Include="Connected Services\FileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\AccountService\WCFAccountService.disco" />
+    <None Include="Connected Services\AccountService\configuration91.svcinfo" />
+    <None Include="Connected Services\AccountService\configuration.svcinfo" />
+    <None Include="Connected Services\AccountService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -140,6 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\AccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BagCategoryService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +239,7 @@
     <Content Include="Views\GuestHeader.cshtml" />
     <Content Include="Views\Guest.cshtml" />
     <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -231,6 +254,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AccountService\" />
     <WCFMetadataStorage Include="Connected Services\BagCategoryService\" />
     <WCFMetadataStorage Include="Connected Services\BagService\" />
     <WCFMetadataStorage Include="Connected Services\FileService\" />

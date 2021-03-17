@@ -17,5 +17,14 @@ namespace WebMVC.Controllers
             ViewBag.Bags = bagServiceClient.GetAllBooksForUser();
             return View("~/Views/Guest.cshtml");
         }
+
+        public ActionResult Admin()
+        {
+            return View();
+        }
+        public ActionResult User()
+        {
+            return View();
+        }
     }
 }

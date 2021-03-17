@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using WebMVC.AccountService;
 
 namespace WebMVC.Models
 {
@@ -37,7 +38,9 @@ namespace WebMVC.Models
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            WCFAccountServiceClient accountServiceClient = new WCFAccountServiceClient();
+            string[] userRole= accountServiceClient.GetUserRole(username).ToString().Split(';');
+            return userRole;
         }
 
         public override string[] GetUsersInRole(string roleName)

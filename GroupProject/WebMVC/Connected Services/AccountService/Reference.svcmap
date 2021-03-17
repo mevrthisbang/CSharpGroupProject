@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1ea647ec-ad3b-4ab6-8143-23f07527e92b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55575/Services/WCFAccountService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WCFAccountService.xsd" MetadataType="Schema" ID="d3ae92c0-c67c-45e0-af9f-777bdc3e160f" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFAccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCFAccountService1.xsd" MetadataType="Schema" ID="cae08c22-9e78-4901-a7cb-094076d0b5ad" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFAccountService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountService.wsdl" MetadataType="Wsdl" ID="7fa96194-1ab1-43d1-8bf4-88b76c70faba" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFAccountService.svc?wsdl" />
+    <MetadataFile FileName="WCFAccountService2.xsd" MetadataType="Schema" ID="330a5978-4597-46df-863b-4b1d0bea9d8f" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFAccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WCFAccountService.disco" MetadataType="Disco" ID="d99608fc-ad71-4cbf-a1af-fba51324424e" SourceId="1" SourceUrl="http://localhost:55575/Services/WCFAccountService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
