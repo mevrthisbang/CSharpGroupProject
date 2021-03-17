@@ -73,7 +73,7 @@ namespace WCF.Services
                         Image = rd.GetString(2),
                         Origin = rd.GetString(3),
                         size = rd.GetString(4),
-                        Price = rd.GetDouble(5),
+                        Price = Convert.ToDouble(rd.GetDecimal(5)),
                         Status = rd.GetString(6)
                     };
                     bagList.Add(bag);

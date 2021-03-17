@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebMVC.BagService;
 using WebMVC.FileService;
+using WebMVC.Models;
 
 namespace WebMVC.Controllers
 {
@@ -17,13 +18,13 @@ namespace WebMVC.Controllers
         {
             return View();
         }
-
+        [CustomAuthorize(Roles = "admin")]
         public ViewResult Create()
         {
             TempData["CreateOrEdit"] = "Create";
             return View("~/Views/Create.cshtml");
         }
-
+        [CustomAuthorize(Roles = "admin")]
         public ViewResult Edit(string bagID)
         {
             TempData["CreateOrEdit"] = "Edit";
@@ -31,6 +32,7 @@ namespace WebMVC.Controllers
             return View("~/Views/Edit.cshtml", bag);
         }
         [HttpPost]
+        [CustomAuthorize(Roles = "admin")]
         public ActionResult Create(Bag bag, HttpPostedFileBase ImageFile)
         {
             TempData["CreateOrEdit"] = "Create";
@@ -66,6 +68,7 @@ namespace WebMVC.Controllers
             return View("~/Views/Create.cshtml");
         }
         [HttpPost]
+        [CustomAuthorize(Roles = "admin")]
         public ActionResult Update(Bag bag, HttpPostedFileBase ImageFile)
         {
             TempData["CreateOrEdit"] = "Edit";
@@ -89,6 +92,7 @@ namespace WebMVC.Controllers
             return Edit(bag.BagID);
         }
         [HttpGet]
+        [CustomAuthorize(Roles = "admin")]
         public ActionResult Delete(string bagID)
         {
             if (bagServiceClient.DeleteBag(bagID))

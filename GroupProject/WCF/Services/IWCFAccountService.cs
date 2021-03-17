@@ -13,6 +13,8 @@ namespace WCF.Services
     public interface IWCFAccountService
     {
         [OperationContract]
+        Account Find(string username);
+        [OperationContract]
         string Login(string username, string password);
         [OperationContract]
         bool Register(Account account);

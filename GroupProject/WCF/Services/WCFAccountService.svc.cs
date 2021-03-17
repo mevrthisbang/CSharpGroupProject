@@ -16,6 +16,28 @@ namespace WCF.Services
     public class AccountService : IWCFAccountService
     {
         DataProvider dp = new DataProvider();
+
+        public Account Find(string username)
+        {
+            Account account = null;
+            string sql = "Select role from AccountTBL " +
+                "Where username=@UserName";
+            DataParameter UserName = new DataParameter { Name = "@UserName", Value = username };
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sql, CommandType.Text, UserName);
+            if (rd.HasRows)
+            {
+                if (rd.Read())
+                {
+                    account = new Account
+                    {
+                        UserName = username,
+                        Role = rd.GetString(0)
+                    };
+                }
+            }
+            return account;
+        }
+
         public string GetUserRole(string username)
         {
             string role = null;

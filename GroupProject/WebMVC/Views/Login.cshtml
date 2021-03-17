@@ -13,7 +13,7 @@
         <img src="~/img/avatar.png" class="avatar">
         <h1>LOGIN</h1>
         <div>
-            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "loginFormID" }))
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "loginFormID" }))
             {
                 @Html.AntiForgeryToken()
                 HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
