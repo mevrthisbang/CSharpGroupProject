@@ -13,10 +13,8 @@
         <img src="~/img/avatar.png" class="avatar">
         <h1>LOGIN</h1>
         <div>
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "loginFormID" }))
-            {
-                @Html.AntiForgeryToken()
-                HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            { 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <p>Username</p>
                 <div class="textbox">

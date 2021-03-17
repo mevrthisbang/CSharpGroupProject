@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebMVC.AccountService;
+using WebMVC.Security;
 
 namespace WebMVC.Controllers
 {
@@ -16,12 +17,14 @@ namespace WebMVC.Controllers
             return View("~/Views/Login.cshtml");
         }
         [HttpPost]
-        public ActionResult Login(string Username, string Password, string returnUrl)
+        public ActionResult Login(string Username, string Password)
         {
             WCFAccountServiceClient accountServiceClient = new WCFAccountServiceClient();
             string role = accountServiceClient.Login(Username, Password);
             if (role != null)
             {
+                SessionPersister.Username = Username;
+                FormsAuthentication.SetAuthCookie(Username, false);
                 if (role.Trim().Equals("admin"))
                 {
                     return RedirectToAction("Admin", "Home");
@@ -30,18 +33,7 @@ namespace WebMVC.Controllers
                 {
                     return RedirectToAction("Customer", "Home");
                 }
-                var Ticket = new FormsAuthenticationTicket(1,
-                    Username,
-                    DateTime.Now,
-                    DateTime.Now.AddMinutes(120), // expiry
-                    false,
-                    role,
-                    "/");
-                string Encrypt = FormsAuthentication.Encrypt(Ticket);
-                var cookies = new HttpCookie(FormsAuthentication.FormsCookieName, Encrypt);
-                cookies.Expires.AddMinutes(120);
-                cookies.HttpOnly = true;
-                Response.Cookies.Add(cookies);
+                
             }
             else
             {

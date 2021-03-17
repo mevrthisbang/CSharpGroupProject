@@ -25,8 +25,7 @@ namespace WebMVC.Security
 
         public bool IsInRole(string role)
         {
-            var roles = role.Split(new char[] { ',' });
-            return roles.Any(r => this.account.Role.Equals(r));
+            return role.ToUpper().Trim().Equals(this.account.Role.ToUpper().Trim());
         }
     }
 }

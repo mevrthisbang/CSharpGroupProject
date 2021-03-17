@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebMVC.BagService;
-using WebMVC.Models;
+using WebMVC.Security;
 
 namespace WebMVC.Controllers
 {

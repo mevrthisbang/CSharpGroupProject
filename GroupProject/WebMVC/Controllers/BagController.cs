@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebMVC.BagService;
 using WebMVC.FileService;
-using WebMVC.Models;
+using WebMVC.Security;
 
 namespace WebMVC.Controllers
 {

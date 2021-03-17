@@ -142,6 +142,12 @@ namespace WebMVC.AccountService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AccountService.IWCFAccountService")]
     public interface IWCFAccountService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFAccountService/Find", ReplyAction="http://tempuri.org/IWCFAccountService/FindResponse")]
+        WebMVC.AccountService.Account Find(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFAccountService/Find", ReplyAction="http://tempuri.org/IWCFAccountService/FindResponse")]
+        System.Threading.Tasks.Task<WebMVC.AccountService.Account> FindAsync(string username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFAccountService/Login", ReplyAction="http://tempuri.org/IWCFAccountService/LoginResponse")]
         string Login(string username, string password);
         
@@ -186,6 +192,14 @@ namespace WebMVC.AccountService {
         
         public WCFAccountServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public WebMVC.AccountService.Account Find(string username) {
+            return base.Channel.Find(username);
+        }
+        
+        public System.Threading.Tasks.Task<WebMVC.AccountService.Account> FindAsync(string username) {
+            return base.Channel.FindAsync(username);
         }
         
         public string Login(string username, string password) {
