@@ -181,12 +181,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BagController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalVariables.cs" />
+    <Compile Include="Models\BagSearchModel.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\CustomPrincipal.cs" />
@@ -245,6 +249,9 @@
     <Content Include="Views\Guest.cshtml" />
     <Content Include="Views\Register.cshtml" />
     <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Cart.cshtml" />
+    <Content Include="Views\ReportOrder.cshtml" />
+    <Content Include="Views\OrderHistory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -254,7 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

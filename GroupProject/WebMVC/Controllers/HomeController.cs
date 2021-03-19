@@ -28,6 +28,14 @@ namespace WebMVC.Controllers
             ViewBag.Bags = bagServiceClient.GetAllBooksForAdmin();
             return View("~/Views/Admin.cshtml");
         }
-        
+        [CustomAuthorize(Roles = "customer")]
+        public ActionResult Customer()
+        {
+            ViewBag.Categories = GlobalVariables.Categories;
+            WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
+            ViewBag.Bags = bagServiceClient.GetAllBooksForUser();
+            return View("~/Views/User.cshtml");
+        }
+
     }
 }
