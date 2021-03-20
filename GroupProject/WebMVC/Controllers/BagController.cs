@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebMVC.BagService;
 using WebMVC.FileService;
+using WebMVC.Models;
 using WebMVC.Security;
 
 namespace WebMVC.Controllers
@@ -106,5 +107,21 @@ namespace WebMVC.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Search(BagSearchModel searchModel, int?page)
+        {
+            if (searchModel.ID == null)
+            {
+                searchModel.ID = "";
+            }
+            if (searchModel.Name == null)
+            {
+                searchModel.Name = "";
+            }
+            if (searchModel.Category == null)
+            {
+                searchModel.Category = "";
+            }
+            return View();
+        } 
     }
 }

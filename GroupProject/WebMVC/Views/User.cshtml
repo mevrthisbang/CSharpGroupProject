@@ -50,6 +50,7 @@
                                     </div>
                                     <div class="center">
                                         <input type="submit" name="action" value="Add to Cart" class="btn btn-primary" style="margin-top: 20px;" />
+                                        <input type="hidden" value="@bag.BagID" name="ID" />
                                     </div>
                                 </div>
                             }
@@ -107,7 +108,19 @@
         @*</div>
             </div>*@
     }
-
+    <script src="~/Scripts/alertify.min.js"></script>
+    <script>
+        function DisplayMessage() {
+            var successMessage = '@TempData["SuccessMessage"]';
+            var failMessage = '@TempData["FailMessage"]';
+            if (successMessage != '') {
+                alertify.success(successMessage);
+            } else if (failMessage != '') {
+                alertify.error(failMessage);
+            }
+        };
+        window.onload = DisplayMessage();
+    </script>
 
 </body>
 </html>

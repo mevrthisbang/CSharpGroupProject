@@ -18,12 +18,13 @@
     @Html.Partial("~/Views/AdminHeader.cshtml")
     <div class="container" style="padding-top: 50px;">
         <div class="center">
-            @using (Html.BeginForm("Bag", "Search", FormMethod.Post))
+            @using (Html.BeginForm("Search", "Bag", FormMethod.Get))
             {
                 <span> ID: </span> @Html.EditorFor(model => model.ID)
                 <span> Name: </span> @Html.EditorFor(model => model.Name)
                 <span> Category: </span>
                 @Html.DropDownListFor(model => model.Category, new SelectList(GlobalVariables.Categories, "bagCID", "CateName"), "--Category--")
+                <input type="submit" value="Search"/>
             }
         </div>
     </div>

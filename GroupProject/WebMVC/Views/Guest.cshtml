@@ -1,4 +1,9 @@
-﻿
+﻿@using WebMVC.BagCategoryService
+@using WebMVC.BagService
+@model WebMVC.Models.BagSearchModel
+@{
+    Layout = null;
+}
 @{
     Layout = null;
 }
@@ -18,7 +23,95 @@
 </head>
 <body>
     @Html.Partial("~/Views/GuestHeader.cshtml")
-    <div>
+    <div class="container" style="padding-top: 50px;">
+        <div class="center">
+            @using (Html.BeginForm("Bag", "Search", FormMethod.Post))
+            {
+                <span> Name: </span> @Html.EditorFor(model => model.Name)
+                <span> Category: </span>
+                @Html.DropDownListFor(model => model.Category, new SelectList(GlobalVariables.Categories, "bagCID", "CateName"), "--Category--")
+            }
+        </div>
     </div>
+    @if (ViewBag.Bags != null)
+    {
+        <div class="section" style="padding-top: 50px;">
+            <div class="container">
+                <div class="row">
+                    @foreach (Bag bag in ViewBag.Bags)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+                            @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post))
+                            {
+                                <div class="product_list" style="background-color: #F0EEEE; min-height: 350px;">
+                                    <div class="product_img"> <img class="img-responsive" src="@Url.Content(bag.Image)" alt="" style="width: 500px; height: 200px;"> </div>
+                                    <div class="product_detail_btm">
+                                        <div class="center">
+                                            <h4>@bag.BagName</h4>
+                                        </div>
+                                        <div class="product_price">
+                                            <p><span class="new_price">@bag.Price$</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="center">
+                                        <input type="submit" name="action" value="Add to Cart" class="btn btn-primary" style="margin-top: 20px;" />
+                                        <input type="hidden" value="@bag.BagID" name="ID" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @*<c:if test="${}">
+            <div class="container">
+                <div class="center">
+                    <c:if test="${}">
+                        <c:url var="prevLink" value="MainController">
+                            <c:param name="action" value="Search" />
+                            <c:param name="page" value="${}" />
+                            <c:param name="txtSearch" value="${}" />
+                            <c:param name="txtFrom" value="${}" />
+                            <c:param name="txtTo" value="${}" />
+                            <c:param name="cboCategory" value="${}" />
+                        </c:url>
+                        <a href="${}" class="btn btn-large btn-primary" style="min-width: 50px;">Previous</a>
+                    </c:if>
+                    <c:forEach begin="1" end="${}" var="i">
+                        <c:choose>
+                            <c:when test="${}">
+                                <a class="btn btn-large" style="background-color: #5a6268; min-width: 50px;">${i}</a>
+                            </c:when>
+                            <c:otherwise>
+                                <c:url var="pageLink" value="MainController">
+                                    <c:param name="action" value="Search" />
+                                    <c:param name="page" value="${}" />
+                                    <c:param name="txtSearch" value="${}" />
+                                    <c:param name="txtFrom" value="${}" />
+                                    <c:param name="txtTo" value="${}" />
+                                    <c:param name="cboCategory" value="${}" />
+                                </c:url>
+                                <a href="${}" class="btn btn-large btn-primary" style="min-width: 50px;">${i}</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+
+
+                    <c:if test="${}">
+                        <c:url var="nextLink" value="MainController">
+                            <c:param name="action" value="Search" />
+                            <c:param name="page" value="${}" />
+                            <c:param name="txtSearch" value="${}" />
+                            <c:param name="txtFrom" value="${}" />
+                            <c:param name="txtTo" value="${}" />
+                            <c:param name="cboCategory" value="${}" />
+                        </c:url>
+                        <a href="${}" class="btn btn-large btn-primary" style="min-width: 50px;">Next</a>
+                    </c:if>*@
+        @*</div>
+            </div>*@
+    }
 </body>
 </html>

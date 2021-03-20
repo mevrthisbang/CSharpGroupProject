@@ -10,6 +10,5 @@ namespace WebMVC.Models
         public string Name { get; set; }
         public string ID { get; set; }
         public string Category { get; set; }
-        public int Page { get; set; }
     }
 }
