@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Transactions;
 using WCF.Entities;
 
 namespace WCF.Services
@@ -167,6 +168,62 @@ namespace WCF.Services
                     + "Where createDate=(Select MAX(createDate) "
                     + "From BagTBL)";
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text);
+            if (rd.HasRows)
+            {
+                if (rd.Read())
+                {
+                    result = rd.GetString(0);
+                }
+            }
+            return result;
+        }
+        public bool Checkout(Order order)
+        {
+            bool result = false;
+            string SQLInsertOrder = "Insert Into OrderTBL(orderID, username, total, status) " +
+                "Values(@ID, @Customer, @Total, 'Verifying')";
+            DataParameter ID = new DataParameter { Name = "@ID", Value = order.OrderID };
+            DataParameter Customer = new DataParameter { Name = "@Customer", Value = order.Customer };
+            DataParameter Total = new DataParameter { Name = "@Total", Value = order.Total };
+            string SQLInsertOrderDetail = "Insert Into OrderDetailTBL(orderDetailID, orderID, bagID, quantity, price) " +
+                "Values(@DetailID, @ID, @BagID, @Quantity, @Price)";
+
+            try
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    dp.executeNonQuery(SQLInsertOrder, CommandType.Text, ID, Customer, Total);
+                    int count = 1;
+                    foreach (Bag bag in order.ListBuyBags.Values)
+                    {
+                        DataParameter DetailID = new DataParameter { Name = "@DetailID", Value = order.OrderID + "_" + count };
+                        DataParameter BagID = new DataParameter { Name = "@BagID", Value = bag.BagID };
+                        DataParameter Quantity = new DataParameter { Name = "@Quantity", Value = bag.Quantity };
+                        DataParameter Price = new DataParameter { Name = "@Price", Value = bag.Price };
+                        dp.executeNonQuery(SQLInsertOrderDetail, CommandType.Text, DetailID, ID, BagID, Quantity, Price);
+                        count++;
+                    }
+                    scope.Complete();
+                }
+                result = true;
+
+            }
+            catch (SqlException se)
+            {
+                throw new Exception(se.Message);
+            }
+            return result;
+        }
+
+        public string GetLastOrderID(string username)
+        {
+            string result = null;
+            string sqlSelect = "Select orderID From OrderTBL "
+                    + "Where dateOrder=(Select MAX(dateOrder) "
+                    + "From OrderTBL " +
+                    "Where username=@UserName)";
+            DataParameter UserName = new DataParameter { Name = "@UserName", Value = username };
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, UserName);
             if (rd.HasRows)
             {
                 if (rd.Read())

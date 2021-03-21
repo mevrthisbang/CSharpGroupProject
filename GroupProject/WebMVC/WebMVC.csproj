@@ -118,6 +118,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\BagService\WCFBagService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\FileService\WCFFileService.disco" />
     <None Include="Connected Services\FileService\configuration91.svcinfo" />
     <None Include="Connected Services\FileService\configuration.svcinfo" />

@@ -27,5 +27,9 @@ namespace WCF.Services
         Bag GetBagByID(string id);
         [OperationContract]
         string GetLastBagID();
+        [OperationContract]
+        string GetLastOrderID(string username);
+        [OperationContract]
+        bool Checkout(Order order);
     }
 }

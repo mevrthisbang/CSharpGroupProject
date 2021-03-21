@@ -202,6 +202,131 @@ namespace WebMVC.BagService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/WCF.Entities")]
+    [System.SerializableAttribute()]
+    public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, WebMVC.BagService.Bag> ListBuyBagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string statusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Customer {
+            get {
+                return this.CustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerField, value) != true)) {
+                    this.CustomerField = value;
+                    this.RaisePropertyChanged("Customer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, WebMVC.BagService.Bag> ListBuyBags {
+            get {
+                return this.ListBuyBagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ListBuyBagsField, value) != true)) {
+                    this.ListBuyBagsField = value;
+                    this.RaisePropertyChanged("ListBuyBags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrderID {
+            get {
+                return this.OrderIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderIDField, value) != true)) {
+                    this.OrderIDField = value;
+                    this.RaisePropertyChanged("OrderID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string status {
+            get {
+                return this.statusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.statusField, value) != true)) {
+                    this.statusField = value;
+                    this.RaisePropertyChanged("status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BagService.IWCFBagService")]
     public interface IWCFBagService {
@@ -247,6 +372,18 @@ namespace WebMVC.BagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetLastBagID", ReplyAction="http://tempuri.org/IWCFBagService/GetLastBagIDResponse")]
         System.Threading.Tasks.Task<string> GetLastBagIDAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetLastOrderID", ReplyAction="http://tempuri.org/IWCFBagService/GetLastOrderIDResponse")]
+        string GetLastOrderID(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetLastOrderID", ReplyAction="http://tempuri.org/IWCFBagService/GetLastOrderIDResponse")]
+        System.Threading.Tasks.Task<string> GetLastOrderIDAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/Checkout", ReplyAction="http://tempuri.org/IWCFBagService/CheckoutResponse")]
+        bool Checkout(WebMVC.BagService.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/Checkout", ReplyAction="http://tempuri.org/IWCFBagService/CheckoutResponse")]
+        System.Threading.Tasks.Task<bool> CheckoutAsync(WebMVC.BagService.Order order);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -330,6 +467,22 @@ namespace WebMVC.BagService {
         
         public System.Threading.Tasks.Task<string> GetLastBagIDAsync() {
             return base.Channel.GetLastBagIDAsync();
+        }
+        
+        public string GetLastOrderID(string username) {
+            return base.Channel.GetLastOrderID(username);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetLastOrderIDAsync(string username) {
+            return base.Channel.GetLastOrderIDAsync(username);
+        }
+        
+        public bool Checkout(WebMVC.BagService.Order order) {
+            return base.Channel.Checkout(order);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckoutAsync(WebMVC.BagService.Order order) {
+            return base.Channel.CheckoutAsync(order);
         }
     }
 }

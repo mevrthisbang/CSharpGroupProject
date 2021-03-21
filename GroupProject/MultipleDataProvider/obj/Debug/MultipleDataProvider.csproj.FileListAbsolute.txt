@@ -22,6 +22,7 @@ C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\Sy
 C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.AccessControl.xml
 C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.Permissions.xml
 C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.csprojAssemblyReference.cache
 C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.csproj.CoreCompileInputs.cache
 C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.csproj.CopyComplete
 C:\Users\Admin\CSharpGroupProject\GroupProject\MultipleDataProvider\obj\Debug\MultipleDataProvider.dll
