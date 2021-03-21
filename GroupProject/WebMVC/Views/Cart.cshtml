@@ -20,7 +20,7 @@
             <h1>Your Cart</h1>
         </div>
         <div class="row" style="margin-top: 50px;">
-            @if (Model.cart!=null && Model.cart.Values.Count() != 0)
+            @if (Model!=null&& Model.cart!=null && Model.cart.Values.Count() != 0)
             {
             <div class="center">
                 <table border="1" class="table table-bordered" style="width: 800px; margin-right: 50px; height: 310px;">

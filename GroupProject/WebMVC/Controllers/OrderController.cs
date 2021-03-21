@@ -65,8 +65,14 @@ namespace WebMVC.Controllers
         [CustomAuthorize(Roles ="customer")]
         public ActionResult GetOrderHistory()
         {
-
-            return View();
+            string Username = SessionPersister.Username;
+            WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
+            Order[] listOrders = bagServiceClient.GetOrderHistoryByUser(Username);
+            foreach(Order order in listOrders)
+            {
+                order.ListBuyBags = bagServiceClient.GetOrderByOrderID(order.OrderID).ListBuyBags;
+            }
+            return View("~/Views/OrderHistory.cshtml", listOrders);
         }
         [CustomAuthorize(Roles = "admin")]
         public ActionResult GetReportOrder()

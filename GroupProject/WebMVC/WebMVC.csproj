@@ -254,7 +254,7 @@
     <Content Include="Views\GuestHeader.cshtml" />
     <Content Include="Views\Guest.cshtml" />
     <Content Include="Views\Register.cshtml" />
-    <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\AccessDenied.cshtml" />
     <Content Include="Views\Cart.cshtml" />
     <Content Include="Views\ReportOrder.cshtml" />
     <Content Include="Views\OrderHistory.cshtml" />

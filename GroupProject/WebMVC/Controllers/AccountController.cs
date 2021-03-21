@@ -79,7 +79,7 @@ namespace WebMVC.Controllers
         [CustomAuthorize(Roles="admin,customer")]
         public ViewResult Logout()
         {
-            SessionPersister.Username = string.Empty;
+            SessionPersister.Username = null;
             FormsAuthentication.SignOut();
             return View("~/Views/Login.cshtml");
         }

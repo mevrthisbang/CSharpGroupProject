@@ -37,5 +37,7 @@ namespace WCF.Services
         List<Bag> BoughtMostBag();
         [OperationContract]
         List<Order> GetOrderHistoryByUser(string username);
+        [OperationContract]
+        Order GetOrderByOrderID(string ID);
     }
 }

@@ -402,6 +402,12 @@ namespace WebMVC.BagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetOrderHistoryByUser", ReplyAction="http://tempuri.org/IWCFBagService/GetOrderHistoryByUserResponse")]
         System.Threading.Tasks.Task<WebMVC.BagService.Order[]> GetOrderHistoryByUserAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetOrderByOrderID", ReplyAction="http://tempuri.org/IWCFBagService/GetOrderByOrderIDResponse")]
+        WebMVC.BagService.Order GetOrderByOrderID(string ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetOrderByOrderID", ReplyAction="http://tempuri.org/IWCFBagService/GetOrderByOrderIDResponse")]
+        System.Threading.Tasks.Task<WebMVC.BagService.Order> GetOrderByOrderIDAsync(string ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -525,6 +531,14 @@ namespace WebMVC.BagService {
         
         public System.Threading.Tasks.Task<WebMVC.BagService.Order[]> GetOrderHistoryByUserAsync(string username) {
             return base.Channel.GetOrderHistoryByUserAsync(username);
+        }
+        
+        public WebMVC.BagService.Order GetOrderByOrderID(string ID) {
+            return base.Channel.GetOrderByOrderID(ID);
+        }
+        
+        public System.Threading.Tasks.Task<WebMVC.BagService.Order> GetOrderByOrderIDAsync(string ID) {
+            return base.Channel.GetOrderByOrderIDAsync(ID);
         }
     }
 }

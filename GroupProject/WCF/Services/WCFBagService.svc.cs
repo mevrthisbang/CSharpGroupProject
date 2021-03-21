@@ -258,7 +258,55 @@ namespace WCF.Services
 
         public List<Order> GetOrderHistoryByUser(string username)
         {
-            throw new NotImplementedException();
+            List<Order> orderList = null;
+            string sqlSelect = "Select orderID, username, dateOrder, status "
+                    + "From OrderTBL "
+                    + "Where username=@Username";
+            DataParameter Username = new DataParameter { Name = "@Username", Value = username };
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, Username);
+            if (rd.HasRows)
+            {
+                orderList = new List<Order>();
+                while (rd.Read())
+                {
+                    Order order = new Order
+                    {
+                        OrderID=rd.GetString(0),
+                        Customer=rd.GetString(1),
+                        CreateDate=rd.GetDateTime(2),
+                        status=rd.GetString(3),
+                    };
+                    orderList.Add(order);
+                }
+            }
+            return orderList;
+        }
+        public Order GetOrderByOrderID(string orderID)
+        {
+            Order order = null;
+            string sqlSelect = "Select B.bagName, OD.bagID, OD.quantity, OD.price "
+                        + "From BagTBL B JOIN OrderDetailTBL OD ON B.bagID = OD.bagID "+
+                         "Where orderID=@ID";
+            DataParameter ID = new DataParameter { Name = "@ID", Value = orderID };
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, ID);
+            if (rd.HasRows)
+            {
+                order = new Order();
+                Dictionary<string, Bag> listBoughtBag = new Dictionary<string, Bag>();
+                while (rd.Read())
+                {
+                    listBoughtBag.Add(rd.GetString(1),
+                        new Bag
+                        {
+                            BagID = rd.GetString(1),
+                            BagName = rd.GetString(0),
+                            Quantity = rd.GetInt32(2),
+                            Price = Convert.ToDouble(rd.GetDecimal(3))
+                        });
+                }
+                order.ListBuyBags = listBoughtBag;
+            }
+            return order;
         }
     }
 }
