@@ -384,6 +384,24 @@ namespace WebMVC.BagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/Checkout", ReplyAction="http://tempuri.org/IWCFBagService/CheckoutResponse")]
         System.Threading.Tasks.Task<bool> CheckoutAsync(WebMVC.BagService.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/CheckQuantity", ReplyAction="http://tempuri.org/IWCFBagService/CheckQuantityResponse")]
+        int CheckQuantity(string BagID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/CheckQuantity", ReplyAction="http://tempuri.org/IWCFBagService/CheckQuantityResponse")]
+        System.Threading.Tasks.Task<int> CheckQuantityAsync(string BagID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/BoughtMostBag", ReplyAction="http://tempuri.org/IWCFBagService/BoughtMostBagResponse")]
+        WebMVC.BagService.Bag[] BoughtMostBag();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/BoughtMostBag", ReplyAction="http://tempuri.org/IWCFBagService/BoughtMostBagResponse")]
+        System.Threading.Tasks.Task<WebMVC.BagService.Bag[]> BoughtMostBagAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetOrderHistoryByUser", ReplyAction="http://tempuri.org/IWCFBagService/GetOrderHistoryByUserResponse")]
+        WebMVC.BagService.Order[] GetOrderHistoryByUser(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBagService/GetOrderHistoryByUser", ReplyAction="http://tempuri.org/IWCFBagService/GetOrderHistoryByUserResponse")]
+        System.Threading.Tasks.Task<WebMVC.BagService.Order[]> GetOrderHistoryByUserAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -483,6 +501,30 @@ namespace WebMVC.BagService {
         
         public System.Threading.Tasks.Task<bool> CheckoutAsync(WebMVC.BagService.Order order) {
             return base.Channel.CheckoutAsync(order);
+        }
+        
+        public int CheckQuantity(string BagID) {
+            return base.Channel.CheckQuantity(BagID);
+        }
+        
+        public System.Threading.Tasks.Task<int> CheckQuantityAsync(string BagID) {
+            return base.Channel.CheckQuantityAsync(BagID);
+        }
+        
+        public WebMVC.BagService.Bag[] BoughtMostBag() {
+            return base.Channel.BoughtMostBag();
+        }
+        
+        public System.Threading.Tasks.Task<WebMVC.BagService.Bag[]> BoughtMostBagAsync() {
+            return base.Channel.BoughtMostBagAsync();
+        }
+        
+        public WebMVC.BagService.Order[] GetOrderHistoryByUser(string username) {
+            return base.Channel.GetOrderHistoryByUser(username);
+        }
+        
+        public System.Threading.Tasks.Task<WebMVC.BagService.Order[]> GetOrderHistoryByUserAsync(string username) {
+            return base.Channel.GetOrderHistoryByUserAsync(username);
         }
     }
 }

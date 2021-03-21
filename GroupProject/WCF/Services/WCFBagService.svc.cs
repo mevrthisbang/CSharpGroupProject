@@ -233,5 +233,32 @@ namespace WCF.Services
             }
             return result;
         }
+
+        public int CheckQuantity(string BagID)
+        {
+            int result = 0;
+            string sqlSelect = "Select quantity From BagTBL "
+                    + "Where bagID=@ID";
+            DataParameter ID = new DataParameter { Name = "@ID", Value = BagID };
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, ID);
+            if (rd.HasRows)
+            {
+                if (rd.Read())
+                {
+                    result = rd.GetInt32(0);
+                }
+            }
+            return result;
+        }
+
+        public List<Bag> BoughtMostBag()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> GetOrderHistoryByUser(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

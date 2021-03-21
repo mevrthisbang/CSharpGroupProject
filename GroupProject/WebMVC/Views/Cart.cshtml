@@ -42,10 +42,17 @@
                                 </td>
                                 <td>
                                     <div class="center">
-                                        <a href="@Url.Action("UpdateAddCart", "Cart", new {bid=bag.BagID})"><button>+</button></a>
-                                        @bag.Quantity
                                         <a href="@Url.Action("UpdateSubCart", "Cart", new {bid=bag.BagID})"><button>-</button></a>
+
+                                        @bag.Quantity
+                                        <a href="@Url.Action("UpdateAddCart", "Cart", new {bid=bag.BagID})"><button>+</button></a>
+
                                     </div>
+                                    <br />
+                                    <div class="center">
+                                        <font color="red">@Html.ValidationMessage("Quantity" + bag.BagID)</font>
+                                    </div>
+
                                 </td>
                                 <td>
                                     @bag.Price $

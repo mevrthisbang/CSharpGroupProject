@@ -14,8 +14,8 @@
         <h1>LOGIN</h1>
         <div>
             @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-            { 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            {
+            <font color="red">@Html.ValidationSummary(true, "", new { htmlAttributes = new { @class = "text-danger" } })</font>
                 <p>Username</p>
                 <div class="textbox">
                     <input type="text" placeholder="Enter username" name="Username" value="" />

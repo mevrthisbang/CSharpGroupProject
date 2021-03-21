@@ -31,5 +31,11 @@ namespace WCF.Services
         string GetLastOrderID(string username);
         [OperationContract]
         bool Checkout(Order order);
+        [OperationContract]
+        int CheckQuantity(string BagID);
+        [OperationContract]
+        List<Bag> BoughtMostBag();
+        [OperationContract]
+        List<Order> GetOrderHistoryByUser(string username);
     }
 }

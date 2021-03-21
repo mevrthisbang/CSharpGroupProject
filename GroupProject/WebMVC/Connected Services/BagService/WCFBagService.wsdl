@@ -62,6 +62,24 @@
   <wsdl:message name="IWCFBagService_Checkout_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckoutResponse" />
   </wsdl:message>
+  <wsdl:message name="IWCFBagService_CheckQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_CheckQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_BoughtMostBag_InputMessage">
+    <wsdl:part name="parameters" element="tns:BoughtMostBag" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_BoughtMostBag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BoughtMostBagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetOrderHistoryByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderHistoryByUser" />
+  </wsdl:message>
+  <wsdl:message name="IWCFBagService_GetOrderHistoryByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderHistoryByUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWCFBagService">
     <wsdl:operation name="GetAllBooksForUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetAllBooksForUser" message="tns:IWCFBagService_GetAllBooksForUser_InputMessage" />
@@ -98,6 +116,18 @@
     <wsdl:operation name="Checkout">
       <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/Checkout" message="tns:IWCFBagService_Checkout_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/CheckoutResponse" message="tns:IWCFBagService_Checkout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/CheckQuantity" message="tns:IWCFBagService_CheckQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/CheckQuantityResponse" message="tns:IWCFBagService_CheckQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BoughtMostBag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/BoughtMostBag" message="tns:IWCFBagService_BoughtMostBag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/BoughtMostBagResponse" message="tns:IWCFBagService_BoughtMostBag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderHistoryByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBagService/GetOrderHistoryByUser" message="tns:IWCFBagService_GetOrderHistoryByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBagService/GetOrderHistoryByUserResponse" message="tns:IWCFBagService_GetOrderHistoryByUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWCFBagService" type="tns:IWCFBagService">
@@ -176,6 +206,33 @@
     </wsdl:operation>
     <wsdl:operation name="Checkout">
       <soap:operation soapAction="http://tempuri.org/IWCFBagService/Checkout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckQuantity">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/CheckQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BoughtMostBag">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/BoughtMostBag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderHistoryByUser">
+      <soap:operation soapAction="http://tempuri.org/IWCFBagService/GetOrderHistoryByUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
