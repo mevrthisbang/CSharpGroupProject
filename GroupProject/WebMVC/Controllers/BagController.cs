@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebMVC.AccountService;
 using WebMVC.BagService;
 using WebMVC.FileService;
 using WebMVC.Models;
@@ -11,7 +12,6 @@ using WebMVC.Security;
 
 namespace WebMVC.Controllers
 {
-    [Authorize]
     public class BagController : Controller
     {
         // GET: Bag
@@ -110,21 +110,61 @@ namespace WebMVC.Controllers
             }
             return RedirectToAction("Admin", "Home");
         }
-        public ActionResult Search(BagSearchModel searchModel, int?page)
+        [AllowAnonymous]
+        public ActionResult Search(string Name, string Cate, int? page)
         {
-            if (searchModel.ID == null)
+            string redirectURL = string.Empty;
+            WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
+            Bag[] listBags = bagServiceClient.GetAllBooksForAdmin();
+            if (!String.IsNullOrEmpty(Name))
             {
-                searchModel.ID = "";
+                listBags = listBags.Where(bag => bag.BagName.Contains(Name)).ToArray();
             }
-            if (searchModel.Name == null)
+            if (!String.IsNullOrEmpty(Cate))
             {
-                searchModel.Name = "";
+                listBags = listBags.Where(bag => bag.BagCID.Equals(Cate)).ToArray();
             }
-            if (searchModel.Category == null)
+            if (String.IsNullOrEmpty(SessionPersister.Username))
             {
-                searchModel.Category = "";
+                listBags = listBags.Where(bag => bag.Status.Equals("Active") && bag.Quantity > 0).ToArray();
+                redirectURL = "~/Views/Guest.cshtml";
             }
-            return View();
+            else
+            {
+                WCFAccountServiceClient accountServiceClient = new WCFAccountServiceClient();
+                if (accountServiceClient.GetUserRole(SessionPersister.Username).Equals("admin"))
+                {
+                    redirectURL = "~/Views/Admin.cshtml";
+                } else if (accountServiceClient.GetUserRole(SessionPersister.Username).Equals("admin"))
+                {
+                    listBags = listBags.Where(bag => bag.Status.Equals("Active") && bag.Quantity > 0).ToArray();
+                    redirectURL = "~/Views/User.cshtml";
+                }
+            }
+            if (page == null||page<=0)
+            {
+                page = 1;
+            }
+            int pageSize = 4;
+            int start = (int)(page - 1) * pageSize;
+
+            ViewBag.pageCurrent = page;
+            int totalPage = listBags.Count();
+            float totalNumsize = (totalPage / (float)pageSize);
+            int numSize = (int)Math.Ceiling(totalNumsize);
+            ViewBag.numSize = numSize;
+            ViewBag.Name = Name;
+            ViewBag.Category = Cate;
+            if (listBags.Length == 0)
+            {
+                listBags = null;
+                ViewBag.Bags = listBags;
+            }
+            else
+            {
+                ViewBag.Bags = listBags.Skip(start).Take(pageSize);
+            }
+            return View(redirectURL);
         } 
     }
 }

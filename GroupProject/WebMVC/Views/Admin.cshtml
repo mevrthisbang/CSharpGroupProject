@@ -1,6 +1,5 @@
 ﻿@using WebMVC.BagCategoryService
 @using WebMVC.BagService
-@model WebMVC.Models.BagSearchModel
 @{
     Layout = null;
 }
@@ -18,13 +17,29 @@
     @Html.Partial("~/Views/AdminHeader.cshtml")
     <div class="container" style="padding-top: 50px;">
         <div class="center">
-            @using (Html.BeginForm("Search", "Bag", FormMethod.Get))
+            @{
+                string Name = ViewBag.Name;
+                string Cate = ViewBag.Category;
+            }
+            @using (Html.BeginForm("Search", "Bag"))
             {
-                <span> ID: </span> @Html.EditorFor(model => model.ID)
-                <span> Name: </span> @Html.EditorFor(model => model.Name)
+                <span> Name: </span> <input type="text" name="Name" value="@Name" />
                 <span> Category: </span>
-                @Html.DropDownListFor(model => model.Category, new SelectList(GlobalVariables.Categories, "bagCID", "CateName"), "--Category--")
-                <input type="submit" value="Search"/>
+                <select name="Cate">
+                    <option value="">--Category--</option>
+                    @foreach (BagCategory category in GlobalVariables.Categories)
+                    {
+                        if (category.bagCID.Equals(Cate))
+                        {
+                            <option value="@category.bagCID" selected="selected">@category.CateName</option>
+                        }
+                        else
+                        {
+                            <option value="@category.bagCID">@category.CateName</option>
+                        }
+                    }
+                </select>
+                <input type="submit" value="Search" />
             }
         </div>
     </div>
@@ -65,7 +80,7 @@
                                     else
                                     {
                                         <div class="center">
-                                            <h1><font color="red">&#10006</font></h1> <br/>
+                                            <h1><font color="red">&#10006</font></h1> <br />
                                         </div>
                                         <div class="center">
                                             <p>Not available action</p>
@@ -78,60 +93,98 @@
                                     <div class="center">
                                         @Html.ActionLink("Edit", "Edit", "Bag", new { BagID = bag.BagID }, new { @class = "btn", @style = "background-color: #000" })
                                     </div>
-                                    
+
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
+            <div class="center">
+                @{
+                    int position;
+                    int pageCurrent = ViewBag.pageCurrent;
+                    float numSize = ViewBag.numSize;
+
+                    if (pageCurrent > 1)
+                    {
+                        <a class="btn btn-large btn-primary" style="min-width: 50px;" href="@Url.Action("Search", "Bag", new { Name = (Name != "" ? Name : null), Cate = (Cate != "" ? Cate : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                    }
+
+                    for (position = 1; position <= numSize; position++)
+                    {
+
+                        if (position == pageCurrent)
+                        {
+                            <a class="btn btn-large btn-primary" style="background-color: #5a6268;min-width: 50px;" href="@Url.Action("Search", "Bag", new { Name = (Name != "" ? Name : null), Cate = (Cate != "" ? Cate : null),  page = position })">@position</a>
+                        }
+
+                        else
+                        {
+                            <a class="btn btn-large btn-primary" style="min-width: 50px;" href="@Url.Action("Search", "Bag", new { Name = (Name != "" ? Name : null), Cate = (Cate != "" ? Cate : null), page = position })">@position</a>
+                        }
+
+                    }
+                    if (pageCurrent > 0 && pageCurrent < numSize)
+                    {
+                        <a class="btn btn-large btn-primary" style="min-width: 50px;" href="@Url.Action("Search", "Bag", new { Name = (Name != "" ? Name : null), Cate = (Cate != "" ? Cate : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                    }
+
+                }
+            </div>
+        }
+        else
+        {
+            <div class="center">
+                <p>Not found any bag!!!</p>
+            </div>
         }
         @*<c:if test="$}">
-            <div class="center">
-                <c:if test="${}">
-                    <c:url var="prevLink" value="MainController">
-                        <c:param name="action" value="Search" />
-                        <c:param name="page" value="${}" />
-                        <c:param name="txtSearch" value="${}" />
-                        <c:param name="txtFrom" value="${}" />
-                        <c:param name="txtTo" value="${}" />
-                        <c:param name="cboCategory" value="${}" />
-                    </c:url>
-                    <a href="${}" class="btn btn-primary" style="min-width: 50px">Previous</a>
-                </c:if>
+        <div class="center">
+            <c:if test="${}">
+                <c:url var="prevLink" value="MainController">
+                    <c:param name="action" value="Search" />
+                    <c:param name="page" value="${}" />
+                    <c:param name="txtSearch" value="${}" />
+                    <c:param name="txtFrom" value="${}" />
+                    <c:param name="txtTo" value="${}" />
+                    <c:param name="cboCategory" value="${}" />
+                </c:url>
+                <a href="${}" class="btn btn-primary" style="min-width: 50px">Previous</a>
+            </c:if>
 
-                <c:forEach begin="1" end="${}" var="i">
-                    <c:choose>
-                        <c:when test="${}">
-                            <a class="btn btn-primary" style="background-color: #707070; min-width: 50px;">${i}</a>
-                        </c:when>
-                        <c:otherwise>
-                            <c:url var="pageLink" value="MainController">
-                                <c:param name="action" value="Search" />
-                                <c:param name="page" value="${}" />
-                                <c:param name="txtSearch" value="${}" />
-                                <c:param name="txtFrom" value="${}" />
-                                <c:param name="txtTo" value="${}" />
-                                <c:param name="cboCategory" value="${}" />
-                            </c:url>
-                            <a href="${}" class="btn btn-primary" style="min-width: 50px">${}</a>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
+            <c:forEach begin="1" end="${}" var="i">
+                <c:choose>
+                    <c:when test="${}">
+                        <a class="btn btn-primary" style="background-color: #707070; min-width: 50px;">${i}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <c:url var="pageLink" value="MainController">
+                            <c:param name="action" value="Search" />
+                            <c:param name="page" value="${}" />
+                            <c:param name="txtSearch" value="${}" />
+                            <c:param name="txtFrom" value="${}" />
+                            <c:param name="txtTo" value="${}" />
+                            <c:param name="cboCategory" value="${}" />
+                        </c:url>
+                        <a href="${}" class="btn btn-primary" style="min-width: 50px">${}</a>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
 
 
-                <c:if test="${}">
-                    <c:url var="nextLink" value="MainController">
-                        <c:param name="action" value="Search" />
-                        <c:param name="page" value="${}" />
-                        <c:param name="txtSearch" value="${}" />
-                        <c:param name="txtFrom" value="${}" />
-                        <c:param name="txtTo" value="${}" />
-                        <c:param name="cboCategory" value="${}" />
-                    </c:url>
-                    <a href="${}" class="btn btn-primary" style="min-width: 50px">Next</a>
-                </c:if>
-            </div>*@
+            <c:if test="${}">
+                <c:url var="nextLink" value="MainController">
+                    <c:param name="action" value="Search" />
+                    <c:param name="page" value="${}" />
+                    <c:param name="txtSearch" value="${}" />
+                    <c:param name="txtFrom" value="${}" />
+                    <c:param name="txtTo" value="${}" />
+                    <c:param name="cboCategory" value="${}" />
+                </c:url>
+                <a href="${}" class="btn btn-primary" style="min-width: 50px">Next</a>
+            </c:if>
+        </div>*@
     </div>
     <script src="~/Scripts/alertify.min.js"></script>
     <script>

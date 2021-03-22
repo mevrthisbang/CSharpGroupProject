@@ -59,7 +59,8 @@ namespace WCF.Services
         public List<Bag> GetAllBooksForAdmin()
         {
             List<Bag> bagList = null;
-            string sqlSelect = "select bagID, bagName, image, origin, size, price, status from BagTBL"
+            string sqlSelect = "select bagID, bagName, image, quantity, price, status, bagCID from BagTBL " +
+                "Order by createDate"
                 ;
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text);
             if (rd.HasRows)
@@ -72,10 +73,10 @@ namespace WCF.Services
                         BagID = rd.GetString(0),
                         BagName = rd.GetString(1),
                         Image = rd.GetString(2),
-                        Origin = rd.GetString(3),
-                        size = rd.GetString(4),
-                        Price = Convert.ToDouble(rd.GetDecimal(5)),
-                        Status = rd.GetString(6)
+                        Quantity = rd.GetInt32(3),
+                        Price = Convert.ToDouble(rd.GetDecimal(4)),
+                        Status = rd.GetString(5),
+                        BagCID=rd.GetString(6)
                     };
                     bagList.Add(bag);
                 }
@@ -87,7 +88,8 @@ namespace WCF.Services
         {
             List<Bag> bagList = null;
             string sqlSelect = "select bagID, bagName, image, origin, size, price from BagTBL " +
-                "Where status='Active' and quantity>0";
+                "Where status='Active' and quantity>0 " +
+                "Order by createDate";
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text);
             if (rd.HasRows)
             {

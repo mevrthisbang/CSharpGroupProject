@@ -15,9 +15,15 @@ namespace WebMVC.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            ViewBag.Categories = GlobalVariables.Categories;
             WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
-            ViewBag.Bags = bagServiceClient.GetAllBooksForUser();
+            int pageSize = 4;
+            Bag[] listBags = bagServiceClient.GetAllBooksForUser();
+            ViewBag.pageCurrent = 1;
+            int totalPage = listBags.Count();
+            float totalNumsize = (totalPage / (float)pageSize);
+            int numSize = (int)Math.Ceiling(totalNumsize);
+            ViewBag.numSize = numSize;
+            ViewBag.Bags = listBags.Skip(0).Take(pageSize);
             return View("~/Views/Guest.cshtml");
         }
         [CustomAuthorize(Roles = "admin")]
@@ -25,7 +31,14 @@ namespace WebMVC.Controllers
         {
             ViewBag.Categories = GlobalVariables.Categories;
             WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
-            ViewBag.Bags = bagServiceClient.GetAllBooksForAdmin();
+            int pageSize = 4;
+            Bag[] listBags = bagServiceClient.GetAllBooksForAdmin();
+            ViewBag.pageCurrent = 1;
+            int totalPage = listBags.Count();
+            float totalNumsize = (totalPage / (float)pageSize);
+            int numSize = (int)Math.Ceiling(totalNumsize);
+            ViewBag.numSize = numSize;
+            ViewBag.Bags = listBags.Skip(0).Take(pageSize);
             return View("~/Views/Admin.cshtml");
         }
         [CustomAuthorize(Roles = "customer")]
@@ -33,7 +46,14 @@ namespace WebMVC.Controllers
         {
             ViewBag.Categories = GlobalVariables.Categories;
             WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
-            ViewBag.Bags = bagServiceClient.GetAllBooksForUser();
+            int pageSize = 4;
+            Bag[] listBags = bagServiceClient.GetAllBooksForUser();
+            ViewBag.pageCurrent = 1;
+            int totalPage = listBags.Count();
+            float totalNumsize = (totalPage / (float)pageSize);
+            int numSize = (int)Math.Ceiling(totalNumsize);
+            ViewBag.numSize = numSize;
+            ViewBag.Bags = listBags.Skip(0).Take(pageSize);
             return View("~/Views/User.cshtml");
         }
 
