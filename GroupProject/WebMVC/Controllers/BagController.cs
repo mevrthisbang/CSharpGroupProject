@@ -76,12 +76,15 @@ namespace WebMVC.Controllers
             TempData["CreateOrEdit"] = "Edit";
             if (ModelState.IsValid)
             {
+                if (ImageFile != null)
+                {
+                    string extension = Path.GetExtension(ImageFile.FileName);
+                    string filename = bag.BagID + "_" + DateTime.Now.ToString("yyyyMMdd") + extension;
+                    bag.Image = "http://localhost:55575/img/" + filename;
+                    WCFFileServiceClient fileServiceClient = new WCFFileServiceClient();
+                    fileServiceClient.UploadFile(filename, ImageFile.InputStream);
+                }
                 
-                string extension = Path.GetExtension(ImageFile.FileName);
-                string filename = bag.BagID +"_"+DateTime.Now.ToString("yyyyMMdd")+ extension;
-                bag.Image = "http://localhost:55575/img/" + filename;
-                WCFFileServiceClient fileServiceClient = new WCFFileServiceClient();
-                fileServiceClient.UploadFile(filename, ImageFile.InputStream);
                 if (bagServiceClient.UpdateBag(bag))
                 {
                     TempData["SuccessMessage"] = "Update Bag Successfully";
@@ -105,7 +108,7 @@ namespace WebMVC.Controllers
             {
                 TempData["FailMessage"] = "Deleted Failed";
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Admin", "Home");
         }
         public ActionResult Search(BagSearchModel searchModel, int?page)
         {

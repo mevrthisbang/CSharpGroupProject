@@ -10,10 +10,7 @@
             <div class="center">
                 <div class="form-group col-md-4">
                     <label for="inputID">BagID</label>
-                    @if (TempData["CreateOrEdit"] == "Edit")
-                    {
                         @Html.TextBoxFor(model => model.BagID, new { @readonly = "readonly", @class = "form-control", @id = "inputID" })
-                    }
                 </div>
             </div>
         </div>
@@ -44,7 +41,7 @@
                 else if (TempData["CreateOrEdit"] == "Edit")
                 {
                     <input type="file" onchange="readURL(this);" accept="image/*" name="ImageFile" class="form-control-file" id="inputImage"/>
-
+                    @Html.HiddenFor(model=>model.Image)
                     <img id="blah" src="@Url.Content(Model.Image)" width="150px" height="200px" /><br>
                 }
 

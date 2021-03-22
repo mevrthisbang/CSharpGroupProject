@@ -56,10 +56,23 @@
                                 <td>@bag.Price</td>
                                 <td>@bag.Quantity</td>
                                 <td>
-                                    <div class="center">
-                                        <a onclick="Delete('@bag.BagID')" class="btn btn-large btn-primary">Delete</a>
-                                    </div>
-                                    
+                                    @if (bag.Status.Equals("Active"))
+                                    {
+                                        <div class="center">
+                                            <a onclick="Delete('@bag.BagID')" class="btn btn-large btn-primary">Delete</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="center">
+                                            <h1><font color="red">&#10006</font></h1> <br/>
+                                        </div>
+                                        <div class="center">
+                                            <p>Not available action</p>
+                                        </div>
+                                    }
+
+
                                 </td>
                                 <td>
                                     <div class="center">
