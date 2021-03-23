@@ -87,7 +87,7 @@
                 @using (Html.BeginForm("Order", "Order", FormMethod.Post))
                 {
                     <div class="center">
-                        <input type="submit" value="Check out" class="btn btn-primary" />
+                        <input type="submit" value="Check out" class="btn btn-primary" onclick="return confirm('Confirm checkout order?')"/>
                     </div>
 
                 }
