@@ -38,7 +38,7 @@ namespace WebMVC.Controllers
                 }
                 else
                 {
-                    int count = int.Parse(lastID.Split('_')[2]);
+                    int count = int.Parse(lastID.Split('_')[2])+1;
                     lastID = "OD_" + Username + "_" + count;
                 }
 
@@ -63,22 +63,32 @@ namespace WebMVC.Controllers
             return View("~/Views/Cart.cshtml", cart);
         }
         [CustomAuthorize(Roles ="customer")]
-        public ActionResult GetOrderHistory()
+        public ActionResult GetOrderHistory(string status)
         {
             string Username = SessionPersister.Username;
             WCFBagServiceClient bagServiceClient = new WCFBagServiceClient();
             Order[] listOrders = bagServiceClient.GetOrderHistoryByUser(Username);
-            foreach(Order order in listOrders)
+            
+            if (listOrders != null)
             {
-                order.ListBuyBags = bagServiceClient.GetOrderByOrderID(order.OrderID).ListBuyBags;
+                switch (status)
+                {
+                    case "Verifying":
+                        listOrders = listOrders.Where(order => order.status.Equals("Verifying")).ToArray();
+                    break;
+                    case "Completed":
+                        listOrders = listOrders.Where(order => order.status.Equals("Completed")).ToArray();
+                        break;
+                    case "Processing":
+                        listOrders = listOrders.Where(order => order.status.Equals("Processing")).ToArray();
+                        break;
+                }
+                foreach (Order order in listOrders)
+                {
+                    order.ListBuyBags = bagServiceClient.GetOrderByOrderID(order.OrderID).ListBuyBags;
+                }
             }
             return View("~/Views/OrderHistory.cshtml", listOrders);
-        }
-        [CustomAuthorize(Roles = "admin")]
-        public ActionResult GetReportOrder()
-        {
-
-            return View();
         }
     }
 }

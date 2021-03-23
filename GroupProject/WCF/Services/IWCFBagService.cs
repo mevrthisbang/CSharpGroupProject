@@ -34,8 +34,6 @@ namespace WCF.Services
         [OperationContract]
         int CheckQuantity(string BagID);
         [OperationContract]
-        List<Bag> BoughtMostBag();
-        [OperationContract]
         List<Order> GetOrderHistoryByUser(string username);
         [OperationContract]
         Order GetOrderByOrderID(string ID);

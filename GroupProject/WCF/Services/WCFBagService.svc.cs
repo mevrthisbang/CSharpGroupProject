@@ -60,7 +60,7 @@ namespace WCF.Services
         {
             List<Bag> bagList = null;
             string sqlSelect = "select bagID, bagName, image, quantity, price, status, bagCID from BagTBL " +
-                "Order by createDate"
+                "Order by createDate DESC"
                 ;
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text);
             if (rd.HasRows)
@@ -89,7 +89,7 @@ namespace WCF.Services
             List<Bag> bagList = null;
             string sqlSelect = "select bagID, bagName, image, origin, size, price from BagTBL " +
                 "Where status='Active' and quantity>0 " +
-                "Order by createDate";
+                "Order by createDate DESC";
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text);
             if (rd.HasRows)
             {
@@ -253,17 +253,13 @@ namespace WCF.Services
             return result;
         }
 
-        public List<Bag> BoughtMostBag()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Order> GetOrderHistoryByUser(string username)
         {
             List<Order> orderList = null;
             string sqlSelect = "Select orderID, username, dateOrder, status "
                     + "From OrderTBL "
-                    + "Where username=@Username";
+                    + "Where username=@Username " +
+                    "Order by dateOrder DESC";
             DataParameter Username = new DataParameter { Name = "@Username", Value = username };
             SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sqlSelect, CommandType.Text, Username);
             if (rd.HasRows)

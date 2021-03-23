@@ -135,7 +135,7 @@ namespace WebMVC.Controllers
                 if (accountServiceClient.GetUserRole(SessionPersister.Username).Equals("admin"))
                 {
                     redirectURL = "~/Views/Admin.cshtml";
-                } else if (accountServiceClient.GetUserRole(SessionPersister.Username).Equals("admin"))
+                } else if (accountServiceClient.GetUserRole(SessionPersister.Username).Equals("customer"))
                 {
                     listBags = listBags.Where(bag => bag.Status.Equals("Active") && bag.Quantity > 0).ToArray();
                     redirectURL = "~/Views/User.cshtml";

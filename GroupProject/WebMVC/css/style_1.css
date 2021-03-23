@@ -4804,3 +4804,21 @@ footer ul.social_icons {
 .product_detail_side.detail_style1 {
     margin-top: 35px;
 }
+.myLink {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+}
+.active, .myLink:hover {
+        background-color: #666;
+        color: white;
+    }
