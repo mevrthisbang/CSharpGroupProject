@@ -165,6 +165,12 @@ namespace WebMVC.AccountService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFAccountService/GetUserRole", ReplyAction="http://tempuri.org/IWCFAccountService/GetUserRoleResponse")]
         System.Threading.Tasks.Task<string> GetUserRoleAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFAccountService/GetUserPhone", ReplyAction="http://tempuri.org/IWCFAccountService/GetUserPhoneResponse")]
+        string GetUserPhone(string phone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFAccountService/GetUserPhone", ReplyAction="http://tempuri.org/IWCFAccountService/GetUserPhoneResponse")]
+        System.Threading.Tasks.Task<string> GetUserPhoneAsync(string phone);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -224,6 +230,14 @@ namespace WebMVC.AccountService {
         
         public System.Threading.Tasks.Task<string> GetUserRoleAsync(string username) {
             return base.Channel.GetUserRoleAsync(username);
+        }
+        
+        public string GetUserPhone(string phone) {
+            return base.Channel.GetUserPhone(phone);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetUserPhoneAsync(string phone) {
+            return base.Channel.GetUserPhoneAsync(phone);
         }
     }
 }

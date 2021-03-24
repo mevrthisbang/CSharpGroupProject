@@ -20,5 +20,7 @@ namespace WCF.Services
         bool Register(Account account);
         [OperationContract]
         string GetUserRole(string username);
+        [OperationContract]
+        string GetUserPhone(string phone);
     }
 }

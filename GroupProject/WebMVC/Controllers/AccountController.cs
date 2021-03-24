@@ -51,28 +51,41 @@ namespace WebMVC.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Register(Account account)
+        public ActionResult Register(Account account, string Repassword)
         {
             string username = account.UserName;
             WCFAccountServiceClient accountServiceClient = new WCFAccountServiceClient();
             if (ModelState.IsValid)
             {
-                if (accountServiceClient.Find(username)==null)
+                bool check = true;
+
+                if (accountServiceClient.Find(username) != null)
+                {
+                    check = false;
+                    ModelState.AddModelError("UserName", "Username is already existed");
+                }
+                if (accountServiceClient.GetUserPhone(account.PhoneNumber) != null)
+                {
+                    ModelState.AddModelError("PhoneNumber", "Phone number is already existed");
+                    check = false;
+                }
+                if (!account.Password.Equals(Repassword))
+                {
+                    ModelState.AddModelError("Repassword", "Does not match with password");
+                    check = false;
+                }
+                if (check)
                 {
                     if (accountServiceClient.Register(account))
                     {
                         ViewBag.Message = "Register Successfully!";
-                        return RedirectToAction("Login", "Account");
+                        return View("~/Views/Login.cshtml");
                     }
                     else
                     {
                         ViewBag.Message = "Server is currently not available!";
                     }
                 }
-            }
-            else
-            {
-                ViewBag.Message = "This user is already existed";
             }
             return View("~/Views/Register.cshtml", account);
         }

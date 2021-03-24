@@ -16,6 +16,7 @@
             @using (Html.BeginForm("Login", "Account", FormMethod.Post))
             {
                 <font color="red">@Html.ValidationSummary(true, "", new { htmlAttributes = new { @class = "text-danger" } })</font>
+                <font color="green">@ViewBag.Message</font>
                 <p>Username</p>
                 <div class="textbox">
                     <input type="text" placeholder="Enter username" name="Username" value="" />
@@ -29,7 +30,7 @@
 
                 </div>
                 <input class="btn" value="Login" name="action" type="submit" />
-                <label>Back to Homepage ?</label> <a href="@Url.Action("Index", "Home")"> Login </a>
+                <a href="@Url.Action("Index", "Home")">Back to Homepage ?  </a>
             }
         </div>
     </div>

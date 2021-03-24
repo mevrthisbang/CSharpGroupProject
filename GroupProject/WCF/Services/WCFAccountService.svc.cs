@@ -54,6 +54,22 @@ namespace WCF.Services
             }
             return role;
         }
+        public string GetUserPhone(string phone)
+        {
+            string role = null;
+            string sql = "Select role from AccountTBL " +
+                "Where phoneNumber=@PhoneNumber";
+            DataParameter PhoneNumber = new DataParameter { Name = "@PhoneNumber", Value = phone };
+            SqlDataReader rd = (SqlDataReader)dp.executeQueryWithDataReader(sql, CommandType.Text, PhoneNumber);
+            if (rd.HasRows)
+            {
+                if (rd.Read())
+                {
+                    role = rd.GetString(0);
+                }
+            }
+            return role;
+        }
 
         public string Login(string username, string password)
         {
