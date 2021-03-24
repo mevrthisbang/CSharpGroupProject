@@ -43,10 +43,9 @@
                                 </td>
                                 <td>
                                     <div class="center">
-                                        <a href="@Url.Action("UpdateSubCart", "Cart", new {bid=bag.BagID})"><button>-</button></a>
-
-                                        @bag.Quantity
-                                        <a href="@Url.Action("UpdateAddCart", "Cart", new {bid=bag.BagID})"><button>+</button></a>
+                                        <a href="@Url.Action("UpdateSubCart", "Cart", new {bid=bag.BagID})" class="btn btn-large btn-primary" style="min-width: 30px; height: 30px;line-height:30px;">-</a>
+                                        <p style="font-size:20px; line-height:50px;margin-left:4px; margin-right:4px;"> @bag.Quantity </p>
+                                        <a href="@Url.Action("UpdateAddCart", "Cart", new {bid=bag.BagID})" class="btn btn-large btn-primary" style="min-width: 30px;height: 30px; line-height:30px;">+</a>
 
                                     </div>
                                     <br />

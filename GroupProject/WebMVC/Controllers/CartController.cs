@@ -19,7 +19,7 @@ namespace WebMVC.Controllers
         }
         [CustomAuthorize(Roles ="customer")]
         [HttpPost]
-        public ActionResult AddToCart(string ID)
+        public ActionResult AddToCart(string ID, string Name, string Cate, int page)
         {
             string username = SessionPersister.Username;
             Cart cart = (Cart)Session["CART"];
@@ -32,7 +32,7 @@ namespace WebMVC.Controllers
             cart.addToCart(bag);
             Session["CART"] = cart;
             TempData["SuccessMessage"] = "Add to Cart Successfully";
-            return RedirectToAction("Customer", "Home");
+            return RedirectToAction("Search", "Bag", new { Name=Name, Cate=Cate, page=page});
         }
         [CustomAuthorize(Roles = "customer")]
         public ActionResult UpdateAddCart(string bid)
