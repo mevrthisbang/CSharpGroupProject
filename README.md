@@ -1,14 +1,14 @@
 # CSharpGroupProject
 Group Project C# with 4 members
-   *Technology: .NET Framework 4.8, Windows Communication Foundation (WCF)
+   * Technology: .NET Framework 4.8, Windows Communication Foundation (WCF)
    
-   *Front-end: free template with my custom to appreciate with my website
+   * Front-end: free template with my custom to appreciate with my website
    
-   *Design Pattern: MVC 
+   * Design Pattern: MVC 
    
-   *Model: 3-tier with WCF
+   * Model: 3-tier with WCF
  
-   *Database: Microsoft SQL Server
+   * Database: Microsoft SQL Server
 
 # User Interface
 ## Homepage
